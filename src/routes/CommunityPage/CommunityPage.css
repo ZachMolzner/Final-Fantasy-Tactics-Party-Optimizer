@@ -1,0 +1,63 @@
+.community {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #1e1a14;
+}
+.community__grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 16px;
+}
+.community__panel {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.65);
+}
+.community__controls {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.community__feed {
+  display: grid;
+  gap: 10px;
+}
+.community__post {
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background: #fff9;
+}
+.community__snapshot {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.community__unit-chip {
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.community__unit-chip--empty {
+  opacity: 0.6;
+}
+.community__actions,
+.community__post-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.community__button {
+  padding: 8px 10px;
+}
+@media (max-width: 980px) {
+  .community__grid {
+    grid-template-columns: 1fr;
+  }
+  .community__snapshot {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

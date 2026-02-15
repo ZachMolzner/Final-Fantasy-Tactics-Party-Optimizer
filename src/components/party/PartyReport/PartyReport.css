@@ -1,0 +1,11 @@
+.party-report__checklist {
+  margin: 0 0 12px;
+  padding-left: 18px;
+}
+.party-report__suggestion {
+  border: 1px solid #5f4d32;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fff5e6;
+  margin-bottom: 8px;
+}

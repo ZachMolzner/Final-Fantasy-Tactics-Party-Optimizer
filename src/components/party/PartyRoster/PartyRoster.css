@@ -1,0 +1,24 @@
+.party-customizer__unit-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #5f4a2c;
+  background: #f8f0df;
+  border-radius: 10px;
+  text-align: left;
+}
+.party-customizer__unit-row--active {
+  border-color: var(--gold);
+  background: #ead5af;
+}
+.party-customizer__portrait {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  background: #d6c4a2;
+  border-radius: 8px;
+}

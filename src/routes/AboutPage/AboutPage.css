@@ -1,0 +1,51 @@
+.about {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+.about__grid {
+  display: grid;
+  gap: 12px;
+}
+.about__panel {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--panel-2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.about__title {
+  margin: 0;
+}
+.about__subtitle {
+  margin: 8px 0;
+}
+.about__list {
+  margin: 0;
+  padding-left: 20px;
+}
+.about__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.about__button {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+.about__button--primary {
+  background: var(--gold);
+  font-weight: 700;
+}
+.about__button--secondary {
+  background: #eee;
+}
+.about__code {
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+}
+.about__callout--warning {
+  color: #6a2f2f;
+}

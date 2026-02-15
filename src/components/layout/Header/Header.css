@@ -1,0 +1,40 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.35);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+.site-header__brand {
+  font-weight: 700;
+  color: #f2e6cc;
+}
+.site-header__nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.site-header__nav a,
+.site-header__auth a {
+  color: #f7f3e9;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.site-header__nav a.active {
+  background: rgba(201, 162, 39, 0.28);
+}
+.site-header__auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+.site-header button {
+  padding: 6px 10px;
+}
