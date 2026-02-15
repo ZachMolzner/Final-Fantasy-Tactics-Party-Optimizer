@@ -1,24 +1,215 @@
-.party-customizer__unit-row {
+/* PartyRoster.css */
+
+.roster {
+  display: grid;
+  gap: 12px;
+}
+
+.roster__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap; /* ✅ prevents header overflow on narrow widths */
+}
+
+.roster__title {
+  margin: 0;
+}
+
+.roster__header-actions {
   display: flex;
   gap: 8px;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 8px;
-  padding: 8px;
-  border: 1px solid #5f4a2c;
-  background: #f8f0df;
+  flex-wrap: wrap; /* ✅ prevents buttons pushing layout */
+}
+
+.roster__btn {
+  padding: 8px 10px;
   border-radius: 10px;
-  text-align: left;
+  border: 1px solid #4f3d23;
+  background: #fffaf0;
+  cursor: pointer;
+  font-weight: 600;
 }
-.party-customizer__unit-row--active {
-  border-color: var(--gold);
-  background: #ead5af;
+
+.roster__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
-.party-customizer__portrait {
-  width: 64px;
-  height: 64px;
+
+.roster__btn--ghost {
+  background: #f9f0df;
+}
+
+.roster__list {
   display: grid;
-  place-items: center;
-  background: #d6c4a2;
-  border-radius: 8px;
+  gap: 10px;
+}
+
+/* ✅ BIG FIX: minmax(0,1fr) prevents grid overflow */
+.roster__item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 18px; /* ✅ */
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid #4f3d23;
+  background: #f9f0df;
+  cursor: pointer;
+
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    background 120ms ease;
+}
+
+.roster__item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  background: #fff3df;
+}
+
+.roster__item--active {
+  background: #fffaf0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  outline: 2px solid rgba(79, 61, 35, 0.35);
+}
+
+.roster__portrait {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(79, 61, 35, 0.6);
+  background: #fffaf0;
+}
+
+.roster__portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ clamps any weird portrait shape */
+  object-position: center;
+  display: block;
+}
+
+.roster__meta {
+  display: grid;
+  gap: 4px;
+  min-width: 0; /* ✅ required for ellipsis inside grid */
+}
+
+/* ✅ ensure children can actually shrink */
+.roster__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0; /* ✅ */
+}
+
+.roster__name {
+  font-weight: 800;
+  color: #3b2b15;
+  min-width: 0; /* ✅ */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ✅ let badges wrap/shrink instead of forcing overflow */
+.roster__badges {
+  display: inline-flex;
+  gap: 6px;
+  flex-wrap: wrap; /* ✅ */
+  justify-content: flex-end;
+  max-width: 50%; /* ✅ keeps them from stealing all space */
+}
+
+.roster__badge {
+  font-size: 0.78rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 61, 35, 0.35);
+  background: rgba(255, 255, 255, 0.65);
+  color: #3b2b15;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.roster__badge--muted {
+  opacity: 0.85;
+}
+
+/* ✅ keep subline from expanding row width */
+.roster__subline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: rgba(59, 43, 21, 0.85);
+  min-width: 0; /* ✅ */
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.roster__job,
+.roster__gender,
+.roster__unique {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.roster__job {
+  font-weight: 700;
+}
+
+.roster__dot {
+  opacity: 0.6;
+  flex: 0 0 auto;
+}
+
+.roster__gender {
+  text-transform: capitalize;
+  opacity: 0.9;
+}
+
+.roster__chev {
+  font-size: 1.4rem;
+  opacity: 0.5;
+  text-align: right;
+  padding-right: 2px;
+  line-height: 1;
+}
+
+.roster__footer {
+  padding-top: 6px;
+}
+
+.roster__hint {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .roster__item {
+    grid-template-columns: 52px minmax(0, 1fr) 14px; /* ✅ */
+  }
+
+  .roster__portrait {
+    width: 52px;
+    height: 52px;
+  }
+
+  .roster__badges {
+    max-width: 60%;
+  }
 }

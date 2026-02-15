@@ -27,6 +27,7 @@ export function applySuggestion(party, suggestion, jobs) {
   if (id === "heal") pick(["heal"]);
   if (id === "ranged") pick(["ranged"]);
   if (id === "revive") pick(["revive"]);
+  if (id === "cleanse") pick(["cleanse"]);
   next.updatedAt = new Date().toISOString();
   return next;
 }

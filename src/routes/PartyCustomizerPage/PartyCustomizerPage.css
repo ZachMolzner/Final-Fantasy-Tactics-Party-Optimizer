@@ -1,6 +1,16 @@
 .party-customizer {
   color: var(--text);
 }
+.party-customizer__toast {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(79, 61, 35, 0.28);
+  background: rgba(255, 255, 255, 0.35);
+  font-weight: 800;
+  opacity: 0.9;
+}
+
 .party-customizer__actions {
   display: flex;
   gap: 10px;
