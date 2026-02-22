@@ -1,32 +1,62 @@
-🏰 Ivalice Chronicles: Party Builder & Role Optimizer
+🏰 Ivalice Chronicles
+Party Builder & Tactical Role Optimizer
 
-A Final Fantasy Tactics–inspired web application that allows users to build custom party compositions and receive structured tactical analysis based on unlocked abilities, role coverage, redundancy, and zodiac compatibility.
+A Final Fantasy Tactics–inspired tactical planning application built with React.
 
-This is a build planning and theorycrafting tool — not a playable game.
+Design custom party compositions, unlock abilities, and receive structured tactical analysis powered by real ability metadata and deterministic rule evaluation.
 
-🎮 Project Overview
+⚔️ This is a theorycrafting and build-planning tool — not a playable game.
 
-Ivalice Chronicles recreates the character configuration experience of Final Fantasy Tactics in a modern web interface. Users can:
+🌐 Live Demo
 
-Create up to 5 custom units
+🔗 Deployed Application
+https://zachmolzner.github.io/Final-Fantasy-Tactics-Party-Optimizer/
 
-Select jobs and secondary ability sets
+🎥 5-Minute Demo Walkthrough
+A guided walkthrough of the architecture, optimization engine, and API integration.
 
-Unlock abilities per job
+👉 https://drive.google.com/file/d/146aVMSj_oOLQTG_nEgIV4q3Cx8rUzN1K/view?usp=sharing
 
-Assign reaction, support, and movement abilities
+🎮 Core Features
+🧩 Party Customization
 
-Adjust Brave, Faith, Gender, Zodiac, and Level
+Build a 5-unit tactical party with deep configuration controls:
 
-View live tactical analysis of their party composition
+Select Primary Job
 
-Save and load party builds
+Assign Secondary Action Set
 
-The optimizer evaluates party balance based on real ability tags rather than simple job labels.
+Unlock job abilities
 
-🧠 Optimization Engine
+Equip:
 
-The rule-based analyzer evaluates:
+Reaction abilities
+
+Support abilities
+
+Movement abilities
+
+Configure:
+
+Brave
+
+Faith
+
+Gender
+
+Zodiac sign
+
+Level
+
+Advanced constraints include:
+
+Gender-locked jobs (Bard / Dancer)
+
+Unique character job gating (Ramza, Agrias, etc.)
+
+🧠 Tactical Optimization Engine
+
+The deterministic analyzer evaluates actual unlocked abilities — not job titles.
 
 Core Role Coverage
 
@@ -34,11 +64,11 @@ Healing
 
 Damage
 
-Ranged
+Ranged pressure
 
-Buffer
+Buffing
 
-Debuffer
+Debuffing
 
 Advanced Capabilities
 
@@ -54,106 +84,195 @@ Magic burst
 
 Cleanse
 
-Additional Analysis
+Additional Systems
 
-Redundancy detection (too many similar units)
+Role redundancy detection
 
-Tactical suggestions with one-click apply actions
-
-Zodiac compatibility scoring between party members
+Zodiac compatibility scoring
 
 Overall Party Score (0–100)
 
-The optimizer is explainable and deterministic — no black-box AI.
+The optimizer is fully explainable — no black-box AI.
 
-🖥 UI Design
+🌐 External API Integration
 
-The interface follows a Faithful FFT aesthetic with modern readability:
+The project includes a service layer that integrates with the Final Fantasy Fandom API.
 
-Parchment panels
+Fetches structured job data
+
+Normalizes external responses into internal data models
+
+Keeps UI decoupled from API logic
+
+Ensures optimizer works with clean, predictable data
+
+API access is isolated within services/fandom/ to maintain architectural separation between data retrieval and application logic.
+
+🌍 Community Features (MVP)
+
+Save party builds locally
+
+Post builds to a Community feed
+
+Add strategy notes
+
+Search and sort shared builds
+
+Save builds from other users
+
+Load shared builds directly into Party Customizer
+
+All data persistence is handled via LocalStorage (MVP architecture).
+
+🔐 Authentication (Frontend MVP)
+
+Lightweight profile system
+
+Protected routes (Community / Profile)
+
+Local session persistence
+
+Display name identity normalization
+
+Author-only delete permissions
+
+Authentication state is managed via Context API and route protection is handled with a reusable ProtectedRoute wrapper.
+
+🖥 UI & Visual Design
+
+Inspired by classic FFT aesthetics while maintaining modern usability standards.
+
+Visual Direction
+
+Parchment-style panels
 
 Gold accent borders
 
-Stone-textured background
+Subtle radial highlights
 
-Serif headings inspired by classic tactical RPG UI
+Stone-toned gradients
 
-Clean spacing and responsive layout
+Responsive layout
 
-Three-panel layout:
+Accessible spacing and contrast
+
+Layout Structure
 
 | Party Roster | Unit Sheet | Party Report |
+
+Additional Pages:
+
+Home
+
+Community
+
+Profile
+
+Sign In
 
 🧱 Tech Stack
 
 React
 
-React Router
+React Router (HashRouter for GitHub Pages)
 
-LocalStorage persistence
+Context API
 
-Custom rule-based optimization engine
+Custom Hooks
+
+LocalStorage persistence layer
+
+Rule-based optimization engine
 
 Modular component architecture
 
-BEM-based CSS structure
+BEM-based CSS methodology
+
+Vite
 
 📁 Project Structure
-src/
-├── components/
-├── routes/
-│ └── PartyCustomizerPage/
-├── data/
-│ ├── jobs.seed.js
-│ ├── zodiac.constants.js
-├── utils/
-│ └── optimizer/
-│ ├── analyzeParty.js
-│ └── suggestFixes.js
-├── services/
-│ └── storage/
-
+Final-Fantasy-Tactics-Party-Optimizer/
+├── public/
+├── scripts/
+│ └── sync-fandom-jobs.js
+├── src/
+│ ├── app/
+│ ├── assets/
+│ ├── components/
+│ │ ├── layout/
+│ │ ├── party/
+│ │ └── shared/
+│ ├── context/
+│ ├── data/
+│ ├── hooks/
+│ ├── routes/
+│ ├── services/
+│ │ ├── fandom/
+│ │ └── storage/
+│ ├── styles/
+│ ├── utils/
+│ │ └── optimizer/
+│ ├── main.jsx
+│ └── index.css
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
 💾 Data Model
 
 Each unit stores:
 
-Identity (name, level, gender, zodiac)
+Name
 
-Primary & secondary job
+Level
 
-Reaction, support, movement abilities
+Gender
 
-Unlocked abilities per job
+Zodiac
 
-Brave and Faith
+Primary job
 
-Equipment (visual MVP)
+Secondary job
 
-Party analysis derives capability directly from unlocked ability tags.
+Reaction / Support / Movement abilities
+
+Unlocked abilities (bucketed per job)
+
+Brave & Faith
+
+Equipment (MVP placeholder)
+
+Party analysis derives capability from ability tags, not static job assumptions.
 
 🚀 Running Locally
 npm install
 npm run dev
 
 Open:
-
 http://localhost:5173
 
-🔮 Future Enhancements
+To deploy:
 
-Backend authentication (save builds per user)
+npm run deploy
+🔮 Planned Enhancements
 
-Community build sharing
+Backend authentication (JWT)
 
-Expanded job database via third-party API
+Database-backed community feed
+
+Expanded job database via API
 
 Equipment stat modeling
 
-Import/export build codes
+Build import/export codes
 
 Dark mode variant
 
-🎯 Why This Project
+Advanced analytics (synergy heatmaps, archetype detection)
+
+🎯 Why This Project Matters
 
 This project demonstrates:
 
@@ -161,17 +280,21 @@ Complex state management
 
 Derived data computation
 
-Modular architecture
+Deterministic rule-based system design
 
-Rule-based optimization systems
+Clean separation of logic and UI
 
-UX recreation of legacy game UI in a modern web context
+API integration and normalization
 
-Structured problem solving and system design
+Scalable component architecture
 
-It reflects both software engineering skills and passion-driven product design.
+Evolution from MVP → multi-page application
+
+It reflects both engineering discipline and passion-driven product design.
 
 📜 Disclaimer
 
-This project is a fan-made planning tool inspired by Final Fantasy Tactics.
+This is a fan-made planning tool inspired by Final Fantasy Tactics.
+
 It is not affiliated with or endorsed by Square Enix.
+No copyrighted game assets are intentionally distributed in this project.
