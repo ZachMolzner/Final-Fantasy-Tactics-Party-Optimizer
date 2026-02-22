@@ -40,6 +40,7 @@ export default function Header() {
           <NavLink to="/" end>
             Home
           </NavLink>
+          <NavLink to="/jobs">Jobs</NavLink>
           <NavLink to="/party-customizer">Party Customizer</NavLink>
           <NavLink to="/community">Community</NavLink>
           <NavLink to="/about">About</NavLink>

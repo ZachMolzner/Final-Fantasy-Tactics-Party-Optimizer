@@ -181,7 +181,6 @@ const RAW_JOBS = [
     movement_abilities: ["Teleport"],
   },
 
-  // ---- Missing core generics you added (kept here, correctly grouped) ----
   {
     job: "Oracle",
     category: "Generic",
@@ -236,7 +235,7 @@ const RAW_JOBS = [
     ],
     reaction_abilities: ["Counter"],
     support_abilities: ["Attack Up"],
-    movement_abilities: [],
+    movement_abilities: ["Ignore Terrain", "Lava Walking"],
   },
   {
     job: "Calculator",
@@ -348,9 +347,9 @@ const RAW_JOBS = [
       "Masamune",
       "Chirijiraden",
     ],
-    reaction_abilities: ["Shirahadori"],
+    reaction_abilities: ["Shirahadori", "Bonecrusher"],
     support_abilities: ["Doublehand"],
-    movement_abilities: [],
+    movement_abilities: ["Swim"],
   },
   {
     job: "Bard",
@@ -364,9 +363,9 @@ const RAW_JOBS = [
       "Magic Song",
       "Hero's Song",
     ],
-    reaction_abilities: [],
+    reaction_abilities: ["Magick Surge", "Faith Boost"],
     support_abilities: [],
-    movement_abilities: [],
+    movement_abilities: ["Movement +3", "Fly"],
   },
   {
     job: "Dancer",
@@ -379,9 +378,9 @@ const RAW_JOBS = [
       "Last Dance",
       "Polka Polka",
     ],
-    reaction_abilities: [],
+    reaction_abilities: ["Fury", "Bravery Boost"],
     support_abilities: [],
-    movement_abilities: [],
+    movement_abilities: ["Jump +3", "Fly"],
   },
 
   {
@@ -663,7 +662,6 @@ function toAbilities(jobId, names, type, jobName) {
 }
 
 export const JOBS = RAW_JOBS.map((job, index) => {
-  // ✅ IMPORTANT: avoid collisions for Unique jobs with same name (Holy Knight, etc.)
   const id = slug(
     `${job.job}${job.uniqueCharacterId ? `_${job.uniqueCharacterId}` : ""}`,
   );
@@ -674,7 +672,7 @@ export const JOBS = RAW_JOBS.map((job, index) => {
     tier: job.category === "Advanced" ? 3 : job.category === "Unique" ? 4 : 1,
     category: job.category,
     actionCommand: job.action_command,
-    uniqueCharacterId: job.uniqueCharacterId || null, // used by UnitSheet filtering
+    uniqueCharacterId: job.uniqueCharacterId || null,
     genderRequirement: job.genderRequirement || null,
     abilities: [
       ...toAbilities(id, job.action_abilities, "action", job.job),

@@ -138,8 +138,24 @@ export default function HomePage() {
             planning app.
           </p>
           <p>
-            I enjoy systems design and tactical RPG tooling. This project
-            focuses on clear, explainable party-building decisions.
+            I’m a full-stack software engineer and lifelong tactical RPG fan
+            with a deep appreciation for systems design, optimization logic, and
+            strategic decision-making. I enjoy building tools that turn complex
+            mechanics into clear, actionable insights.
+          </p>
+
+          <p>
+            Ivalice Chronicles is a passion project that combines my love for
+            <em>Final Fantasy Tactics</em> with modern web development. The goal
+            is to create transparent, explainable party-building analysis —
+            highlighting role coverage, redundancy, synergy gaps, and zodiac
+            compatibility in a way that feels both powerful and intuitive.
+          </p>
+
+          <p>
+            Beyond gaming systems, I focus on writing clean, scalable React
+            architecture, thoughtful UX, and modular logic that mirrors the
+            structure of tactical design itself.
           </p>
 
           <p className="home__links">

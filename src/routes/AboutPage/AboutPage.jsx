@@ -44,7 +44,6 @@ export default function AboutPage() {
           <ul className="about__list">
             <li className="about__list-item">Party Customizer</li>
             <li className="about__list-item">Role Optimizer</li>
-            <li className="about__list-item">Zodiac Compatibility Report</li>
             <li className="about__list-item">Save & Share Builds</li>
           </ul>
         </article>

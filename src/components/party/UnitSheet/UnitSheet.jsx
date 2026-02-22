@@ -110,24 +110,40 @@ function AbilityGroup({ title, abilities, checkedIds, onToggle, query }) {
   );
 }
 
-export default function UnitSheet({ unit, jobs, zodiacs, onUpdate }) {
-  if (!unit) return null;
-
+export default function UnitSheet({ unit, jobs = [], zodiacs = [], onUpdate }) {
+  // ✅ Hooks must run every render (even when unit is null)
   const [abilityQuery, setAbilityQuery] = useState("");
 
-  const setField = (field, value) =>
+  // Provide safe fallbacks so hooks can compute without crashing
+  const safeUnit = unit ?? {
+    characterId: "none",
+    name: "",
+    level: 1,
+    gender: "male",
+    zodiac: "",
+    brave: 70,
+    faith: 70,
+    primaryJobId: "squire",
+    secondaryJobId: "chemist",
+    unlockedAbilities: {},
+  };
+
+  const setField = (field, value) => {
+    if (!onUpdate) return;
     onUpdate((u) => ({ ...u, [field]: value }));
+  };
 
   const setNum = (field, value, min, max) =>
     setField(field, Math.max(min, Math.min(max, Number(value) || min)));
 
   // --- Unique character logic ---
-  const characterId = unit.characterId || "none";
+  const characterId = safeUnit.characterId || "none";
   const isUnique = characterId !== "none";
   const uniqueRule = isUnique ? UNIQUE_CHARACTER_RULES[characterId] : null;
 
   // Auto-lock gender when a unique is selected
   useEffect(() => {
+    if (!unit) return; // ✅ guard inside the hook
     if (uniqueRule?.gender && unit.gender !== uniqueRule.gender) {
       setField("gender", uniqueRule.gender);
     }
@@ -142,7 +158,7 @@ export default function UnitSheet({ unit, jobs, zodiacs, onUpdate }) {
     );
   }, [jobs, characterId, isUnique]);
 
-  // ✅ Filter job options:
+  // Filter job options:
   // - Allow Generic + Advanced
   // - Allow Unique ONLY if it matches the selected character
   // - Enforce genderRequirement (Bard/Dancer)
@@ -155,16 +171,18 @@ export default function UnitSheet({ unit, jobs, zodiacs, onUpdate }) {
       }
 
       // Gender gating
-      if (j.genderRequirement && j.genderRequirement !== unit.gender) {
+      if (j.genderRequirement && j.genderRequirement !== safeUnit.gender) {
         return false;
       }
 
       return true;
     });
-  }, [jobs, isUnique, characterId, unit.gender]);
+  }, [jobs, isUnique, characterId, safeUnit.gender]);
 
-  // ✅ Safety net: if gender changes and a now-illegal job is selected, reset it
+  // Safety net: if gender changes and a now-illegal job is selected, reset it
   useEffect(() => {
+    if (!unit) return; // ✅ guard inside the hook
+
     const primary = jobs.find((j) => j.id === unit.primaryJobId);
     const secondary = jobs.find((j) => j.id === unit.secondaryJobId);
 
@@ -174,14 +192,17 @@ export default function UnitSheet({ unit, jobs, zodiacs, onUpdate }) {
     if (invalidForGender(primary)) setField("primaryJobId", "squire");
     if (invalidForGender(secondary)) setField("secondaryJobId", "chemist");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [unit.gender]);
+  }, [safeUnit.gender]);
 
   // If switching to generic while having unique jobs selected, snap back
   useEffect(() => {
+    if (!unit) return; // ✅ guard inside the hook
+
     const currentPrimary = jobs.find((j) => j.id === unit.primaryJobId);
     if (!isUnique && currentPrimary?.category === "Unique") {
       setField("primaryJobId", "squire");
     }
+
     const currentSecondary = jobs.find((j) => j.id === unit.secondaryJobId);
     if (!isUnique && currentSecondary?.category === "Unique") {
       setField("secondaryJobId", "chemist");
@@ -190,19 +211,19 @@ export default function UnitSheet({ unit, jobs, zodiacs, onUpdate }) {
   }, [characterId]);
 
   const primaryJob =
-    filteredJobs.find((j) => j.id === unit.primaryJobId) ||
+    filteredJobs.find((j) => j.id === safeUnit.primaryJobId) ||
     filteredJobs.find((j) => j.id === "squire") ||
     filteredJobs[0];
 
   const secondaryJob =
-    filteredJobs.find((j) => j.id === unit.secondaryJobId) ||
+    filteredJobs.find((j) => j.id === safeUnit.secondaryJobId) ||
     filteredJobs.find((j) => j.id === "chemist") ||
     filteredJobs[0];
 
   const zodiacLabel =
-    zodiacs.find((z) => z.id === unit.zodiac)?.name || unit.zodiac;
+    zodiacs.find((z) => z.id === safeUnit.zodiac)?.name || safeUnit.zodiac;
 
-  // --- Ability sources (PRIMARY: action + support + movement) ---
+  // Ability sources (PRIMARY: action + support + movement)
   const primaryAbilities = primaryJob?.abilities || [];
   const primaryActionAbilities = primaryAbilities.filter(
     (a) => a.type === "action",
@@ -214,18 +235,19 @@ export default function UnitSheet({ unit, jobs, zodiacs, onUpdate }) {
     (a) => a.type === "movement",
   );
 
-  // --- Ability sources (SECONDARY: ACTION ONLY) ---
+  // Ability sources (SECONDARY: ACTION ONLY)
   const secondaryActionAbilities = useMemo(() => {
     const list = secondaryJob?.abilities || [];
     return list.filter((a) => a.type === "action");
   }, [secondaryJob]);
 
   // Buckets for checkboxes (per job)
-  const checkedPrimary = unit.unlockedAbilities?.[primaryJob?.id] || [];
-  const checkedSecondary = unit.unlockedAbilities?.[secondaryJob?.id] || [];
+  const checkedPrimary = safeUnit.unlockedAbilities?.[primaryJob?.id] || [];
+  const checkedSecondary = safeUnit.unlockedAbilities?.[secondaryJob?.id] || [];
 
   // Toggle ability checkbox for a specific job bucket
   const toggleAbilityForJob = (jobId, abilityId) => {
+    if (!unit) return; // ✅ don’t do anything if there is no unit selected
     onUpdate((u) => {
       const next = {
         ...u,
@@ -251,6 +273,9 @@ export default function UnitSheet({ unit, jobs, zodiacs, onUpdate }) {
   const movementOptions = filteredJobs.flatMap((job) =>
     (job.abilities || []).filter((a) => a.type === "movement"),
   );
+
+  // ✅ NOW it’s safe to early-return (after hooks)
+  if (!unit || !primaryJob || !secondaryJob) return null;
 
   return (
     <div className="unit-sheet">

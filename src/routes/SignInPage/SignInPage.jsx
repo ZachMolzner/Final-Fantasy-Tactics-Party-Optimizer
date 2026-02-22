@@ -65,7 +65,9 @@ export default function SignInPage() {
               onBlur={() => setTouched(true)}
               placeholder="Adventurer"
               autoComplete="nickname"
-              maxLength={32}
+              required
+              minLength={2}
+              maxLength={24}
             />
 
             <span className="signin__help">

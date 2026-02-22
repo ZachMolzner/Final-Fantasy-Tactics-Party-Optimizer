@@ -41,8 +41,9 @@ export default function CommunityPage() {
 
   const authorName = profile?.displayName || "Adventurer";
 
-  const [savedParties, setSavedParties] = useState([]);
-  const [posts, setPosts] = useState([]);
+  // ✅ Lazy-init from storage (fixes react-hooks/set-state-in-effect)
+  const [savedParties, setSavedParties] = useState(() => readSavedParties());
+  const [posts, setPosts] = useState(() => readCommunityPosts());
 
   const [selectedPartyId, setSelectedPartyId] = useState("");
   const [message, setMessage] = useState("");
@@ -50,11 +51,6 @@ export default function CommunityPage() {
   const [notice, setNotice] = useState("");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState("newest");
-
-  useEffect(() => {
-    setSavedParties(readSavedParties());
-    setPosts(readCommunityPosts());
-  }, []);
 
   // auto-clear notice
   useEffect(() => {

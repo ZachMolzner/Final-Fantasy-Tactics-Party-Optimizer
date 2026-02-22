@@ -96,7 +96,7 @@
 }
 
 .site-header__brand-main {
-  font-family: "Georgia", serif;
+  font-family: var(--font-main);
   font-weight: 900;
   font-size: 1.15rem;
   letter-spacing: 1px;

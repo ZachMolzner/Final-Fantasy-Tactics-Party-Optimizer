@@ -144,7 +144,7 @@
    ========================= */
 
 .site-footer__brand {
-  font-family: "Georgia", serif;
+  font-family: var(--font-main);
   font-weight: 900;
   font-size: 1.02rem;
   letter-spacing: 1px;
