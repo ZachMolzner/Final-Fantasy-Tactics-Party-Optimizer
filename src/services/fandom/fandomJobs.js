@@ -145,23 +145,18 @@ export function parseJobFromWikitext(title, wikitext) {
   };
 }
 
-/**
- * ✅ UPDATED: adds `origin=*` for CORS
- */
 async function fandomQuery(params, { signal } = {}) {
   const query = new URLSearchParams({
     format: "json",
     formatversion: "2",
     redirects: "1",
-    origin: "*", // ✅ REQUIRED for browser CORS requests to MediaWiki/Fandom
+    origin: "*",
     ...params,
   });
 
   const res = await fetch(`${FANDOM_API_BASE}?${query}`, {
     signal,
     headers: {
-      // Optional but fine:
-      // In browsers, some headers may be ignored.
       Accept: "application/json",
     },
   });
