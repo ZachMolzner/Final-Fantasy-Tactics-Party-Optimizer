@@ -1,8 +1,8 @@
-/* PartyRoster.css */
-
 .roster {
   display: grid;
   gap: 12px;
+  width: 100%;
+  min-width: 0;
 }
 
 .roster__header {
@@ -10,7 +10,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  flex-wrap: wrap; /* ✅ prevents header overflow on narrow widths */
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
 .roster__title {
@@ -20,7 +21,7 @@
 .roster__header-actions {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap; /* ✅ prevents buttons pushing layout */
+  flex-wrap: wrap;
 }
 
 .roster__btn {
@@ -44,13 +45,22 @@
 .roster__list {
   display: grid;
   gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-width: 0;
 }
 
-/* ✅ BIG FIX: minmax(0,1fr) prevents grid overflow */
-.roster__item {
+.roster__li {
+  min-width: 0;
+}
+
+.roster__card {
   width: 100%;
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) 18px; /* ✅ */
+
+  grid-template-columns: 56px minmax(0, 1fr) 18px;
+
   gap: 12px;
   align-items: center;
   text-align: left;
@@ -65,15 +75,16 @@
     transform 120ms ease,
     box-shadow 120ms ease,
     background 120ms ease;
+  min-width: 0;
 }
 
-.roster__item:hover {
+.roster__card:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   background: #fff3df;
 }
 
-.roster__item--active {
+.roster__card--active {
   background: #fffaf0;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
   outline: 2px solid rgba(79, 61, 35, 0.35);
@@ -91,7 +102,7 @@
 .roster__portrait-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ✅ clamps any weird portrait shape */
+  object-fit: cover;
   object-position: center;
   display: block;
 }
@@ -99,34 +110,33 @@
 .roster__meta {
   display: grid;
   gap: 4px;
-  min-width: 0; /* ✅ required for ellipsis inside grid */
+  min-width: 0;
 }
 
-/* ✅ ensure children can actually shrink */
 .roster__topline {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  min-width: 0; /* ✅ */
+  min-width: 0;
 }
 
 .roster__name {
   font-weight: 800;
   color: #3b2b15;
-  min-width: 0; /* ✅ */
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* ✅ let badges wrap/shrink instead of forcing overflow */
 .roster__badges {
   display: inline-flex;
   gap: 6px;
-  flex-wrap: wrap; /* ✅ */
+  flex-wrap: wrap;
   justify-content: flex-end;
-  max-width: 50%; /* ✅ keeps them from stealing all space */
+  max-width: 50%;
+  min-width: 0;
 }
 
 .roster__badge {
@@ -144,14 +154,13 @@
   opacity: 0.85;
 }
 
-/* ✅ keep subline from expanding row width */
 .roster__subline {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 0.9rem;
   color: rgba(59, 43, 21, 0.85);
-  min-width: 0; /* ✅ */
+  min-width: 0;
 
   white-space: nowrap;
   overflow: hidden;
@@ -198,10 +207,9 @@
   opacity: 0.75;
 }
 
-/* Responsive */
 @media (max-width: 800px) {
-  .roster__item {
-    grid-template-columns: 52px minmax(0, 1fr) 14px; /* ✅ */
+  .roster__card {
+    grid-template-columns: 52px minmax(0, 1fr) 14px;
   }
 
   .roster__portrait {
