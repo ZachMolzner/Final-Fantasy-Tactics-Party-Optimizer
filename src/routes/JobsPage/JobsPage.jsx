@@ -1,8 +1,8 @@
 import { JOBS as JOBS_SEED } from "../../data/jobs.seed";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { fetchJobsFromFandom } from "../../services/fandom/fandomJobs";
+import "./JobsPage.css";
 
-// Allow ONLY jobs in your seed list
 const ALLOWED_JOB_IDS = new Set(JOBS_SEED.map((j) => j.id));
 
 const normalizeName = (value) =>
@@ -30,9 +30,7 @@ const stripPlaceholders = (abilities) =>
   (abilities || []).filter((a) => !isPlaceholderAbilityName(a?.name));
 
 function mergeJobsWithSeed(apiJobs) {
-  const apiByName = new Map(
-    (apiJobs || []).map((j) => [normalizeName(j.name), j]),
-  );
+  const apiByName = new Map((apiJobs || []).map((j) => [normalizeName(j.name), j]));
 
   const merged = JOBS_SEED.map((seedJob) => {
     const apiMatch = apiByName.get(normalizeName(seedJob.name));
@@ -65,6 +63,8 @@ export default function JobsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const controller = new AbortController();
 
@@ -90,35 +90,79 @@ export default function JobsPage() {
     return () => controller.abort();
   }, []);
 
+  const filteredJobs = useMemo(() => {
+    const q = normalizeName(query);
+    if (!q) return jobs;
+    return jobs.filter((job) => normalizeName(job.name).includes(q));
+  }, [jobs, query]);
+
   return (
-    <section className="page-panel" style={{ maxWidth: 900, margin: "0 auto" }}>
-      <h1>Jobs</h1>
+    <main className="jobs-page">
+      <section className="page-panel jobs-page__panel">
+        <header className="jobs-page__header">
+          <h1 className="jobs-page__title">Jobs</h1>
+          <p className="jobs-page__intro">
+            Browse job ability lists (seed data merged with Fandom where available).
+          </p>
+        </header>
 
-      {isLoading && <p>Loading jobs…</p>}
+        <div className="jobs-page__controls">
+          <label className="party-customizer__field jobs-page__search">
+            <span className="party-customizer__label">Search jobs</span>
+            <input
+              className="party-customizer__input"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Type a job name (e.g., Squire, Wizard, Ninja)"
+            />
+          </label>
+        </div>
 
-      {errorMessage && (
-        <p role="alert" style={{ fontWeight: 600 }}>
-          {errorMessage}
-        </p>
-      )}
+        {isLoading && <p className="jobs-page__status">Loading jobs…</p>}
 
-      {!isLoading && !errorMessage && jobs.length === 0 && (
-        <p>No jobs found.</p>
-      )}
+        {errorMessage && (
+          <p role="alert" className="jobs-page__error">
+            {errorMessage}
+          </p>
+        )}
 
-      {!isLoading && !errorMessage && jobs.length > 0 && (
-        <ul>
-          {jobs.map((job) => (
-            <li key={job.id}>
-              <strong>{job.name}</strong> —{" "}
-              {job.abilities
-                .filter((a) => !isPlaceholderAbilityName(a?.name))
-                .map((a) => a.name)
-                .join(", ")}
-            </li>
-          ))}
-        </ul>
-      )}
-    </section>
+        {!isLoading && !errorMessage && filteredJobs.length === 0 && (
+          <p className="jobs-page__empty">No jobs found.</p>
+        )}
+
+        {!isLoading && !errorMessage && filteredJobs.length > 0 && (
+          <ul className="jobs-page__list" aria-label="Job list">
+            {filteredJobs.map((job) => {
+              const abilities = stripPlaceholders(job.abilities);
+
+              return (
+                <li key={job.id} className="jobs-page__item">
+                  <article className="jobs-page__card">
+                    <header className="jobs-page__card-head">
+                      <h2 className="jobs-page__job-name">{job.name}</h2>
+                      <span className="jobs-page__job-meta">
+                        {job.source === "seed" ? "Seed" : "Seed + Fandom"}
+                      </span>
+                    </header>
+
+                    {abilities.length ? (
+                      <ul className="jobs-page__abilities" aria-label={`${job.name} abilities`}>
+                        {abilities.map((a) => (
+                          <li key={a.id || a.name} className="jobs-page__ability">
+                            {a.name}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="jobs-page__desc">No abilities listed for this job.</p>
+                    )}
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </section>
+    </main>
   );
 }
