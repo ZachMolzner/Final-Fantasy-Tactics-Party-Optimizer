@@ -11,13 +11,22 @@ body {
   min-width: 320px;
 }
 
-
+/* ✅ DO NOT hide horizontal scrolling here
+   (review requires you to fix layout instead of clipping) */
 html {
-  overflow-x: clip;
+  overflow-x: auto;
 }
 
 body {
-  font-family: var(--font-main, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif);
+  font-family: var(
+    --font-main,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif
+  );
   color: var(--text);
   background: radial-gradient(
     circle at 20% 10%,
@@ -25,7 +34,7 @@ body {
     #151515 60%,
     #0d0d0d 100%
   );
-  overflow-x: clip;
+  overflow-x: auto; /* ✅ allow if something breaks so you can detect it */
 }
 
 #root {
@@ -35,6 +44,7 @@ body {
   min-width: 0;
 }
 
+/* Text safety: prevents long strings from forcing width */
 p,
 h1,
 h2,
@@ -53,6 +63,7 @@ a {
   color: inherit;
 }
 
+/* Media should never exceed container width */
 img,
 svg,
 video,
@@ -62,6 +73,7 @@ canvas {
   display: block;
 }
 
+/* Form controls should not exceed container width */
 button,
 input,
 select,
