@@ -6,8 +6,8 @@ import "./Header.css";
 export default function Header() {
   const { isAuthenticated, profile, logout } = useAuth();
 
-  const [open, setOpen] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false); // user dropdown
+  const [mobileOpen, setMobileOpen] = useState(false); // mobile drawer
 
   const userMenuRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -15,12 +15,9 @@ export default function Header() {
   // Close on outside click
   useEffect(() => {
     const onDown = (e) => {
-      // user dropdown
       if (userMenuRef.current && !userMenuRef.current.contains(e.target)) {
         setOpen(false);
       }
-
-      // mobile drawer
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
         setMobileOpen(false);
       }
@@ -42,6 +39,7 @@ export default function Header() {
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
+  // If switching to desktop, close mobile drawer
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 900) setMobileOpen(false);
@@ -60,7 +58,7 @@ export default function Header() {
           <span className="site-header__brand-shimmer" aria-hidden="true" />
         </NavLink>
 
-        {}
+        {/* Desktop nav */}
         <nav className="site-header__nav" aria-label="Primary navigation">
           <NavLink to="/" end>
             Home
@@ -71,9 +69,9 @@ export default function Header() {
           <NavLink to="/about">About</NavLink>
         </nav>
 
-        {}
+        {/* Right cluster */}
         <div className="site-header__right">
-          {}
+          {/* Mobile hamburger */}
           <button
             type="button"
             className="site-header__hamburger"
@@ -94,7 +92,7 @@ export default function Header() {
             </span>
           </button>
 
-          {}
+          {/* Auth dropdown */}
           <div className="site-header__auth" ref={userMenuRef}>
             {isAuthenticated ? (
               <div className="site-header__user">
@@ -132,16 +130,6 @@ export default function Header() {
                         Profile
                       </NavLink>
 
-                      {}
-                      <NavLink
-                        to="/settings"
-                        className="site-header__menuItem"
-                        role="menuitem"
-                        onClick={() => setOpen(false)}
-                      >
-                        Settings
-                      </NavLink>
-
                       <button
                         type="button"
                         className="site-header__menuItem site-header__menuItem--danger"
@@ -170,11 +158,10 @@ export default function Header() {
         </div>
       </div>
 
-      {}
-      {mobileOpen ? (
-        <div className="site-header__overlay" aria-hidden="true" />
-      ) : null}
+      {/* Overlay */}
+      {mobileOpen ? <div className="site-header__overlay" aria-hidden="true" /> : null}
 
+      {/* Mobile drawer */}
       <div
         id="mobile-nav"
         className={`site-header__mobile ${mobileOpen ? "is-open" : ""}`}
@@ -203,11 +190,6 @@ export default function Header() {
 
               <NavLink to="/profile" onClick={closeMobile}>
                 Profile
-              </NavLink>
-
-              {}
-              <NavLink to="/settings" onClick={closeMobile}>
-                Settings
               </NavLink>
 
               <button
