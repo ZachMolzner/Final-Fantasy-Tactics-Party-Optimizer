@@ -1,530 +1,254 @@
-// src/components/party/UnitSheet/UnitSheet.jsx
-
-import { useMemo, useState, useEffect } from "react";
-import {
-  getPortraitSrc,
-  UNIQUE_CHARACTERS,
-  UNIQUE_CHARACTER_RULES,
-} from "../../../data/portraits.seed.js";
-import "./UnitSheet.css";
-
-function UnitPortrait({ unit, primaryJob, zodiacLabel }) {
-  const portraitSrc = getPortraitSrc({
-    primaryJob: primaryJob?.name,
-    gender: unit?.gender,
-    unitName: unit?.name,
-    characterId: unit?.characterId,
-  });
-
-  return (
-    <div className="unit-sheet__portraitFrame">
-      <div className="unit-sheet__portrait">
-        <div className="unit-sheet__zodiacWatermark" aria-hidden="true">
-          {zodiacLabel?.slice(0, 3) || ""}
-        </div>
-
-        <img
-          className="unit-sheet__portrait-image"
-          src={portraitSrc}
-          alt={`${primaryJob?.name || "Unit"} portrait`}
-          loading="lazy"
-        />
-      </div>
-
-      <div className="unit-sheet__nameplate">
-        <span className="unit-sheet__nameplate-name">{unit?.name}</span>
-      </div>
-    </div>
-  );
+.unit-sheet {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
 }
 
-function AbilityGroup({ title, abilities, checkedIds, onToggle, query }) {
-  const q = (query || "").trim().toLowerCase();
+.unit-sheet__identity {
+  display: grid;
 
-  const filtered = useMemo(() => {
-    const list = abilities || [];
-    if (!q) return list;
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
 
-    return list.filter((a) => {
-      const nameHit = a.name?.toLowerCase().includes(q);
-      const tagHit = (a.tags || []).some((t) => t.toLowerCase().includes(q));
-      return nameHit || tagHit;
-    });
-  }, [abilities, q]);
+  gap: 14px;
+  align-items: start;
 
-  if (!filtered.length) return null;
-
-  return (
-    <div className="unit-sheet__abilityGroup">
-      <div className="unit-sheet__abilityGroupTitle">{title}</div>
-
-      <div className="unit-sheet__abilityList">
-        {filtered.map((a) => {
-          const isOn = (checkedIds || []).includes(a.id);
-          const tags = a.tags || [];
-
-          return (
-            <label
-              key={a.id}
-              className={`unit-sheet__abilityRow ${
-                isOn ? "unit-sheet__abilityRow--on" : ""
-              }`}
-              title={tags.join(", ")}
-            >
-              <input
-                type="checkbox"
-                className="unit-sheet__abilityCheckbox"
-                checked={isOn}
-                onChange={() => onToggle(a.id)}
-              />
-
-              <div className="unit-sheet__abilityMain">
-                <div className="unit-sheet__abilityLine">
-                  <span className="unit-sheet__abilityName">{a.name}</span>
-                  {a.jpCost ? (
-                    <span className="unit-sheet__abilityMeta">
-                      {a.jpCost} JP
-                    </span>
-                  ) : null}
-                </div>
-
-                <div className="unit-sheet__abilityTags">
-                  {tags.length ? (
-                    tags.map((t) => (
-                      <span key={`${a.id}-${t}`} className="unit-sheet__tag">
-                        {t}
-                      </span>
-                    ))
-                  ) : (
-                    <span className="unit-sheet__tag unit-sheet__tag--muted">
-                      untagged
-                    </span>
-                  )}
-                </div>
-              </div>
-            </label>
-          );
-        })}
-      </div>
-    </div>
-  );
+  width: 100%;
+  min-width: 0;
 }
 
-export default function UnitSheet({ unit, jobs = [], zodiacs = [], onUpdate }) {
-  // ✅ Hooks must run every render (even when unit is null)
-  const [abilityQuery, setAbilityQuery] = useState("");
+.unit-sheet__portraitFrame {
+  display: grid;
+  gap: 10px;
+  align-content: start;
 
-  // Provide safe fallbacks so hooks can compute without crashing
-  const safeUnit = unit ?? {
-    characterId: "none",
-    name: "",
-    level: 1,
-    gender: "male",
-    zodiac: "",
-    brave: 70,
-    faith: 70,
-    primaryJobId: "squire",
-    secondaryJobId: "chemist",
-    unlockedAbilities: {},
-  };
+  width: 100%;
+  max-width: 230px;
+  min-width: 0;
+}
 
-  const setField = (field, value) => {
-    if (!onUpdate) return;
-    onUpdate((u) => ({ ...u, [field]: value }));
-  };
+.unit-sheet__portrait {
+  width: min(230px, 100%);
+  aspect-ratio: 3 / 4;
+  height: auto;
 
-  const setNum = (field, value, min, max) =>
-    setField(field, Math.max(min, Math.min(max, Number(value) || min)));
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
 
-  // --- Unique character logic ---
-  const characterId = safeUnit.characterId || "none";
-  const isUnique = characterId !== "none";
-  const uniqueRule = isUnique ? UNIQUE_CHARACTER_RULES[characterId] : null;
+  border: 2px solid rgba(199, 155, 59, 0.7);
+  background: rgba(255, 250, 240, 0.72);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
 
-  // Auto-lock gender when a unique is selected
-  useEffect(() => {
-    if (!unit) return; // ✅ guard inside the hook
-    if (uniqueRule?.gender && unit.gender !== uniqueRule.gender) {
-      setField("gender", uniqueRule.gender);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [characterId]);
+.unit-sheet__zodiacWatermark {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 4rem;
+  opacity: 0.08;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
 
-  // Determine the unique job that belongs to this selected character
-  const uniqueJobForSelected = useMemo(() => {
-    if (!isUnique) return null;
-    return jobs.find(
-      (j) => j.category === "Unique" && j.uniqueCharacterId === characterId,
-    );
-  }, [jobs, characterId, isUnique]);
+.unit-sheet__portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 10px;
+}
 
-  // Filter job options:
-  // - Allow Generic + Advanced
-  // - Allow Unique ONLY if it matches the selected character
-  // - Enforce genderRequirement (Bard/Dancer)
-  const filteredJobs = useMemo(() => {
-    return jobs.filter((j) => {
-      // Unique job gating
-      if (j.category === "Unique") {
-        if (!isUnique) return false;
-        if (j.uniqueCharacterId !== characterId) return false;
-      }
+.unit-sheet__nameplate {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(79, 61, 35, 0.35);
+  background: rgba(255, 250, 240, 0.9);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
 
-      // Gender gating
-      if (j.genderRequirement && j.genderRequirement !== safeUnit.gender) {
-        return false;
-      }
+  width: min(230px, 100%);
+}
 
-      return true;
-    });
-  }, [jobs, isUnique, characterId, safeUnit.gender]);
+.unit-sheet__nameplate-name {
+  font-weight: 900;
+  color: #3b2b15;
+  overflow-wrap: anywhere;
+}
 
-  // Safety net: if gender changes and a now-illegal job is selected, reset it
-  useEffect(() => {
-    if (!unit) return; // ✅ guard inside the hook
+.unit-sheet__grid {
+  display: grid;
 
-    const primary = jobs.find((j) => j.id === unit.primaryJobId);
-    const secondary = jobs.find((j) => j.id === unit.secondaryJobId);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    const invalidForGender = (job) =>
-      job?.genderRequirement && job.genderRequirement !== unit.gender;
+  gap: 10px;
+  min-width: 0;
+}
 
-    if (invalidForGender(primary)) setField("primaryJobId", "squire");
-    if (invalidForGender(secondary)) setField("secondaryJobId", "chemist");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [safeUnit.gender]);
+.unit-sheet__identity .unit-sheet__grid {
+  min-width: 0;
+}
 
-  // If switching to generic while having unique jobs selected, snap back
-  useEffect(() => {
-    if (!unit) return; // ✅ guard inside the hook
+.party-customizer__field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
 
-    const currentPrimary = jobs.find((j) => j.id === unit.primaryJobId);
-    if (!isUnique && currentPrimary?.category === "Unique") {
-      setField("primaryJobId", "squire");
-    }
+.party-customizer__input,
+.party-customizer__select {
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(79, 61, 35, 0.45);
+  background: rgba(255, 250, 240, 0.85);
 
-    const currentSecondary = jobs.find((j) => j.id === unit.secondaryJobId);
-    if (!isUnique && currentSecondary?.category === "Unique") {
-      setField("secondaryJobId", "chemist");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [characterId]);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
 
-  const primaryJob =
-    filteredJobs.find((j) => j.id === safeUnit.primaryJobId) ||
-    filteredJobs.find((j) => j.id === "squire") ||
-    filteredJobs[0];
+.unit-sheet__hint {
+  font-size: 0.86rem;
+  opacity: 0.85;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
 
-  const secondaryJob =
-    filteredJobs.find((j) => j.id === safeUnit.secondaryJobId) ||
-    filteredJobs.find((j) => j.id === "chemist") ||
-    filteredJobs[0];
+.unit-sheet__abilityGroup {
+  border: 1px solid rgba(79, 61, 35, 0.35);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 250, 240, 0.75);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  min-width: 0;
+}
 
-  const zodiacLabel =
-    zodiacs.find((z) => z.id === safeUnit.zodiac)?.name || safeUnit.zodiac;
+.unit-sheet__abilityGroupTitle {
+  font-weight: 900;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(79, 61, 35, 0.18);
+  background: rgba(255, 232, 168, 0.35);
+  color: #3b2b15;
+}
 
-  // Ability sources (PRIMARY: action + support + movement)
-  const primaryAbilities = primaryJob?.abilities || [];
-  const primaryActionAbilities = primaryAbilities.filter(
-    (a) => a.type === "action",
-  );
-  const primarySupportAbilities = primaryAbilities.filter(
-    (a) => a.type === "support",
-  );
-  const primaryMovementAbilities = primaryAbilities.filter(
-    (a) => a.type === "movement",
-  );
+.unit-sheet__abilityList {
+  display: grid;
+  min-width: 0;
+}
 
-  // Ability sources (SECONDARY: ACTION ONLY)
-  const secondaryActionAbilities = useMemo(() => {
-    const list = secondaryJob?.abilities || [];
-    return list.filter((a) => a.type === "action");
-  }, [secondaryJob]);
+.unit-sheet__abilityRow {
+  display: grid;
 
-  // Buckets for checkboxes (per job)
-  const checkedPrimary = safeUnit.unlockedAbilities?.[primaryJob?.id] || [];
-  const checkedSecondary = safeUnit.unlockedAbilities?.[secondaryJob?.id] || [];
+  grid-template-columns: 22px minmax(0, 1fr);
 
-  // Toggle ability checkbox for a specific job bucket
-  const toggleAbilityForJob = (jobId, abilityId) => {
-    if (!unit) return; // ✅ don’t do anything if there is no unit selected
-    onUpdate((u) => {
-      const next = {
-        ...u,
-        unlockedAbilities: { ...(u.unlockedAbilities || {}) },
-      };
+  gap: 10px;
+  align-items: start;
 
-      const bucket = [...(next.unlockedAbilities[jobId] || [])];
-      next.unlockedAbilities[jobId] = bucket.includes(abilityId)
-        ? bucket.filter((id) => id !== abilityId)
-        : [...bucket, abilityId];
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
 
-      return next;
-    });
-  };
+  border-bottom: 1px solid rgba(79, 61, 35, 0.14);
+}
 
-  // Dropdown options for equipped reaction/support/movement (cross-job list, filtered)
-  const reactionOptions = filteredJobs.flatMap((job) =>
-    (job.abilities || []).filter((a) => a.type === "reaction"),
-  );
-  const supportOptions = filteredJobs.flatMap((job) =>
-    (job.abilities || []).filter((a) => a.type === "support"),
-  );
-  const movementOptions = filteredJobs.flatMap((job) =>
-    (job.abilities || []).filter((a) => a.type === "movement"),
-  );
+.unit-sheet__abilityRow:last-child {
+  border-bottom: 0;
+}
 
-  // ✅ NOW it’s safe to early-return (after hooks)
-  if (!unit || !primaryJob || !secondaryJob) return null;
+.unit-sheet__abilityRow:hover {
+  background: rgba(255, 232, 168, 0.22);
+}
 
-  return (
-    <div className="unit-sheet">
-      <h2 className="party-customizer__panel-title">Unit Sheet</h2>
+.unit-sheet__abilityRow--on {
+  background: rgba(244, 207, 122, 0.22);
+}
 
-      <section className="unit-sheet__identity">
-        <UnitPortrait
-          unit={unit}
-          primaryJob={primaryJob}
-          zodiacLabel={zodiacLabel}
-        />
+.unit-sheet__abilityCheckbox {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: #c79b3b;
+  cursor: pointer;
+}
 
-        <div className="unit-sheet__grid">
-          <label className="party-customizer__field">
-            <span className="party-customizer__label">Character</span>
-            <select
-              className="party-customizer__select"
-              value={characterId}
-              onChange={(e) => setField("characterId", e.target.value)}
-            >
-              {UNIQUE_CHARACTERS.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.name}
-                </option>
-              ))}
-            </select>
+.unit-sheet__abilityMain {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
 
-            {isUnique && uniqueJobForSelected ? (
-              <div className="unit-sheet__hint">
-                Unique Job available:{" "}
-                <strong>{uniqueJobForSelected.name}</strong>
-              </div>
-            ) : null}
-          </label>
+.unit-sheet__abilityLine {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
 
-          <label className="party-customizer__field">
-            <span className="party-customizer__label">Name</span>
-            <input
-              className="party-customizer__input"
-              value={unit.name}
-              onChange={(e) => setField("name", e.target.value)}
-            />
-          </label>
+.unit-sheet__abilityName {
+  font-weight: 900;
+  color: #3b2b15;
 
-          <label className="party-customizer__field">
-            <span className="party-customizer__label">Level</span>
-            <input
-              type="number"
-              min="1"
-              max="99"
-              className="party-customizer__input"
-              value={unit.level}
-              onChange={(e) => setNum("level", e.target.value, 1, 99)}
-            />
-          </label>
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-          <label className="party-customizer__field">
-            <span className="party-customizer__label">Gender</span>
-            <select
-              className="party-customizer__select"
-              value={unit.gender}
-              disabled={!!uniqueRule?.gender}
-              onChange={(e) => setField("gender", e.target.value)}
-              title={
-                uniqueRule?.gender ? "Locked for this unique character" : ""
-              }
-            >
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </label>
+.unit-sheet__abilityMeta {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  font-weight: 800;
+  flex-shrink: 0;
+}
 
-          <label className="party-customizer__field">
-            <span className="party-customizer__label">Zodiac</span>
-            <select
-              className="party-customizer__select"
-              value={unit.zodiac}
-              onChange={(e) => setField("zodiac", e.target.value)}
-            >
-              {zodiacs.map((z) => (
-                <option key={z.id} value={z.id}>
-                  {z.name}
-                </option>
-              ))}
-            </select>
-          </label>
+.unit-sheet__abilityTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
 
-          <label className="party-customizer__field">
-            <span className="party-customizer__label">Brave</span>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              className="party-customizer__input"
-              value={unit.brave}
-              onChange={(e) => setNum("brave", e.target.value, 0, 100)}
-            />
-          </label>
+.unit-sheet__tag {
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 61, 35, 0.28);
+  background: rgba(255, 255, 255, 0.65);
+  color: rgba(59, 43, 21, 0.9);
+  max-width: 100%;
+}
 
-          <label className="party-customizer__field">
-            <span className="party-customizer__label">Faith</span>
-            <input
-              type="number"
-              min="0"
-              max="100"
-              className="party-customizer__input"
-              value={unit.faith}
-              onChange={(e) => setNum("faith", e.target.value, 0, 100)}
-            />
-          </label>
-        </div>
-      </section>
+.unit-sheet__tag--muted {
+  opacity: 0.6;
+}
 
-      <section className="unit-sheet__grid unit-sheet__jobs">
-        <label className="party-customizer__field">
-          <span className="party-customizer__label">Primary job</span>
-          <select
-            className="party-customizer__select"
-            value={unit.primaryJobId}
-            onChange={(e) => setField("primaryJobId", e.target.value)}
-          >
-            {filteredJobs.map((j) => (
-              <option
-                key={`${j.id}-${j.uniqueCharacterId || "g"}`}
-                value={j.id}
-              >
-                {j.name}
-              </option>
-            ))}
-          </select>
-        </label>
+@media (max-width: 900px) {
+  .unit-sheet__identity {
+    grid-template-columns: 1fr;
+  }
 
-        <label className="party-customizer__field">
-          <span className="party-customizer__label">Secondary set</span>
-          <select
-            className="party-customizer__select"
-            value={unit.secondaryJobId}
-            onChange={(e) => setField("secondaryJobId", e.target.value)}
-          >
-            {filteredJobs.map((j) => (
-              <option
-                key={`${j.id}-${j.uniqueCharacterId || "g"}`}
-                value={j.id}
-              >
-                {j.name}
-              </option>
-            ))}
-          </select>
-        </label>
-      </section>
+  .unit-sheet__portraitFrame {
+    max-width: 240px;
+    margin: 0 auto;
+  }
 
-      <section className="unit-sheet__grid">
-        <label className="party-customizer__field">
-          <span className="party-customizer__label">Reaction ability</span>
-          <select
-            className="party-customizer__select"
-            value={unit.reactionAbilityId || ""}
-            onChange={(e) => setField("reactionAbilityId", e.target.value)}
-          >
-            <option value="">None</option>
-            {reactionOptions.map((a) => (
-              <option key={a.id} value={a.id}>
-                {a.name}
-              </option>
-            ))}
-          </select>
-        </label>
+  .unit-sheet__portrait {
+    width: min(240px, 100%);
+    margin: 0 auto;
+  }
 
-        <label className="party-customizer__field">
-          <span className="party-customizer__label">Support ability</span>
-          <select
-            className="party-customizer__select"
-            value={unit.supportAbilityId || ""}
-            onChange={(e) => setField("supportAbilityId", e.target.value)}
-          >
-            <option value="">None</option>
-            {supportOptions.map((a) => (
-              <option key={a.id} value={a.id}>
-                {a.name}
-              </option>
-            ))}
-          </select>
-        </label>
-      </section>
+  .unit-sheet__nameplate {
+    width: min(240px, 100%);
+    margin: 0 auto;
+  }
 
-      <section className="unit-sheet__grid">
-        <label className="party-customizer__field">
-          <span className="party-customizer__label">Movement ability</span>
-          <select
-            className="party-customizer__select"
-            value={unit.movementAbilityId || ""}
-            onChange={(e) => setField("movementAbilityId", e.target.value)}
-          >
-            <option value="">None</option>
-            {movementOptions.map((a) => (
-              <option key={a.id} value={a.id}>
-                {a.name}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label className="party-customizer__field">
-          <span className="party-customizer__label">Search abilities</span>
-          <input
-            className="party-customizer__input"
-            value={abilityQuery}
-            onChange={(e) => setAbilityQuery(e.target.value)}
-            placeholder="Search name or tag: damage, ranged, heal, buff..."
-          />
-        </label>
-      </section>
-
-      {/* PRIMARY: Action */}
-      <AbilityGroup
-        title={`${primaryJob?.actionCommand || "Actions"} (${primaryJob?.name})`}
-        abilities={primaryActionAbilities}
-        checkedIds={checkedPrimary}
-        onToggle={(abilityId) => toggleAbilityForJob(primaryJob.id, abilityId)}
-        query={abilityQuery}
-      />
-
-      {/* SECONDARY: Action ONLY */}
-      <AbilityGroup
-        title={`Secondary Actions (${secondaryJob?.name})`}
-        abilities={secondaryActionAbilities}
-        checkedIds={checkedSecondary}
-        onToggle={(abilityId) =>
-          toggleAbilityForJob(secondaryJob.id, abilityId)
-        }
-        query={abilityQuery}
-      />
-
-      {/* PRIMARY: Support + Movement */}
-      <AbilityGroup
-        title={`Support Abilities (${primaryJob?.name})`}
-        abilities={primarySupportAbilities}
-        checkedIds={checkedPrimary}
-        onToggle={(abilityId) => toggleAbilityForJob(primaryJob.id, abilityId)}
-        query={abilityQuery}
-      />
-
-      <AbilityGroup
-        title={`Movement Abilities (${primaryJob?.name})`}
-        abilities={primaryMovementAbilities}
-        checkedIds={checkedPrimary}
-        onToggle={(abilityId) => toggleAbilityForJob(primaryJob.id, abilityId)}
-        query={abilityQuery}
-      />
-    </div>
-  );
+  .unit-sheet__grid {
+    grid-template-columns: 1fr;
+  }
 }
