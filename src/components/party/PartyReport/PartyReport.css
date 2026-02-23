@@ -1,15 +1,10 @@
-/* ============================
-   FFT-Style Party Report
-   ============================ */
-
 .report {
   display: grid;
   gap: 14px;
+  width: 100%;
+  min-width: 0;
 }
 
-/* ============================
-   Title Bar
-   ============================ */
 
 .report__titlebar {
   display: flex;
@@ -31,6 +26,9 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
     0 10px 22px rgba(0, 0, 0, 0.18);
+
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .report__title {
@@ -40,6 +38,9 @@
   color: #fff6e1;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
   font-size: 1.05rem;
+
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .report__scorechip {
@@ -55,11 +56,9 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.55),
     0 2px 6px rgba(0, 0, 0, 0.15);
-}
 
-/* ============================
-   Panels
-   ============================ */
+  flex: 0 0 auto;
+}
 
 .report__panel {
   padding: 14px;
@@ -76,6 +75,10 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.55),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .report__panel--warn {
@@ -94,6 +97,8 @@
   color: rgba(43, 28, 15, 0.95);
   text-transform: uppercase;
   font-size: 0.85rem;
+
+  overflow-wrap: anywhere;
 }
 
 .report__section-head {
@@ -102,22 +107,29 @@
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
+
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .report__section-sub {
   font-size: 0.85rem;
   opacity: 0.75;
+
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-/* ============================
-   Score Meter
-   ============================ */
 
 .report__scoreline {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 8px;
+
+  min-width: 0;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .report__label {
@@ -126,11 +138,15 @@
   text-transform: uppercase;
   font-size: 0.8rem;
   opacity: 0.9;
+
+  min-width: 0;
 }
 
 .report__value {
   font-weight: 900;
   font-size: 0.9rem;
+
+  flex: 0 0 auto;
 }
 
 .report__meter {
@@ -139,6 +155,9 @@
   overflow: hidden;
   background: rgba(43, 28, 15, 0.15);
   border: 1px solid rgba(79, 61, 35, 0.25);
+
+  width: 100%;
+  max-width: 100%;
 }
 
 .report__meter-fill {
@@ -151,11 +170,9 @@
   margin-top: 8px;
   font-size: 0.85rem;
   opacity: 0.75;
-}
 
-/* ============================
-   Tactical Checklist
-   ============================ */
+  overflow-wrap: anywhere;
+}
 
 .report__checklist {
   list-style: none;
@@ -163,12 +180,15 @@
   padding: 0;
   display: grid;
   gap: 10px;
+  min-width: 0;
 }
 
 .report__check {
   position: relative;
   display: grid;
-  grid-template-columns: 28px 1fr;
+
+  grid-template-columns: 28px minmax(0, 1fr);
+
   gap: 12px;
   align-items: center;
 
@@ -183,6 +203,8 @@
     0 4px 12px rgba(0, 0, 0, 0.08);
 
   transition: all 0.18s ease;
+
+  min-width: 0;
 }
 
 .report__check::before {
@@ -252,29 +274,26 @@
   text-overflow: ellipsis;
 }
 
-/* ============================
-   Warnings
-   ============================ */
 
 .report__warnings {
   margin: 0;
   padding-left: 18px;
   display: grid;
   gap: 6px;
+  min-width: 0;
 }
 
 .report__warning {
   font-weight: 700;
   opacity: 0.9;
+  overflow-wrap: anywhere;
 }
 
-/* ============================
-   Suggestions (No Apply Button)
-   ============================ */
 
 .report__suggestions {
   display: grid;
   gap: 10px;
+  min-width: 0;
 }
 
 .report__suggestion {
@@ -287,6 +306,8 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.55),
     0 6px 16px rgba(0, 0, 0, 0.12);
+
+  min-width: 0;
 }
 
 .report__suggestion::before {
@@ -305,6 +326,9 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 6px;
+
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .report__badge {
@@ -318,11 +342,15 @@
 
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(79, 61, 35, 0.35);
+
+  flex: 0 0 auto;
 }
 
 .report__suggestion-title {
   font-weight: 900;
   color: #2b1c0f;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .report__suggestion-reason {
@@ -330,11 +358,9 @@
   opacity: 0.88;
   font-weight: 650;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
-/* ============================
-   Empty State
-   ============================ */
 
 .report__empty {
   padding: 10px;
@@ -343,11 +369,10 @@
   background: rgba(255, 255, 255, 0.35);
   font-weight: 700;
   opacity: 0.85;
+
+  overflow-wrap: anywhere;
 }
 
-/* ============================
-   Responsive
-   ============================ */
 
 @media (max-width: 800px) {
   .report__suggestion-head {
