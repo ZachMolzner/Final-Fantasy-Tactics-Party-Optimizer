@@ -6,21 +6,25 @@
   min-width: 0;
 }
 
+/* ✅ KEY FIX: clamp the identity row so form fields can’t spill outside panel */
 .unit-sheet__identity {
   display: grid;
 
-  grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
+  /* Portrait column has a controlled width range (prevents pushing form out) */
+  grid-template-columns: minmax(210px, 240px) minmax(0, 1fr);
 
   gap: 14px;
   align-items: start;
+
   width: 100%;
+  max-width: 100%;
   min-width: 0;
+
+  /* ✅ This is what stops the inputs from rendering outside the panel */
+  overflow: hidden;
 }
 
-/* =========================
-   Portrait
-   ========================= */
-
+/* portrait frame */
 .unit-sheet__portraitFrame {
   display: grid;
   gap: 10px;
@@ -81,22 +85,21 @@
   color: #3b2b15;
 }
 
-/* =========================
-   Details + Input Grid
-   ========================= */
-
 .unit-sheet__details {
   min-width: 0;
   width: 100%;
 }
 
+/* main field grids */
 .unit-sheet__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   min-width: 0;
+  max-width: 100%;
 }
 
+/* ✅ This prevents “squeeze weirdness” before mobile */
 @media (max-width: 1100px) {
   .unit-sheet__grid {
     grid-template-columns: 1fr;
@@ -107,6 +110,7 @@
   display: grid;
   gap: 6px;
   min-width: 0;
+  max-width: 100%;
 }
 
 .party-customizer__input,
@@ -127,10 +131,7 @@
   margin-top: 4px;
 }
 
-/* =========================
-   Ability Groups
-   ========================= */
-
+/* ability groups */
 .unit-sheet__abilityGroup {
   width: 100%;
   max-width: 100%;
@@ -174,6 +175,7 @@
 
   border-bottom: 1px solid rgba(79, 61, 35, 0.14);
 
+  /* keeps tags/lines from pushing width */
   overflow: hidden;
 }
 
@@ -189,7 +191,7 @@
   background: rgba(244, 207, 122, 0.22);
 }
 
-/* Checkbox alignment fix */
+/* ✅ checkbox margin fix */
 .unit-sheet__abilityCheckbox {
   margin: 0;
   margin-top: 3px;
@@ -217,7 +219,6 @@
 .unit-sheet__abilityName {
   font-weight: 900;
   color: #3b2b15;
-
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -259,10 +260,7 @@
   opacity: 0.6;
 }
 
-/* =========================
-   Mobile
-   ========================= */
-
+/* responsive */
 @media (max-width: 900px) {
   .unit-sheet__identity {
     grid-template-columns: 1fr;
