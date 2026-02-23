@@ -1,9 +1,5 @@
-import { JOBS as JOBS_SEED } from "../../data/jobs.seed";
-import { useEffect, useState, useMemo } from "react";
-import { fetchJobsFromFandom } from "../../services/fandom/fandomJobs";
+import { useMemo, useState } from "react";
 import "./JobsPage.css";
-
-const ALLOWED_JOB_IDS = new Set(JOBS_SEED.map((j) => j.id));
 
 const normalizeName = (value) =>
   String(value || "")
@@ -29,66 +25,12 @@ const isPlaceholderAbilityName = (name) => {
 const stripPlaceholders = (abilities) =>
   (abilities || []).filter((a) => !isPlaceholderAbilityName(a?.name));
 
-function mergeJobsWithSeed(apiJobs) {
-  const apiByName = new Map((apiJobs || []).map((j) => [normalizeName(j.name), j]));
-
-  const merged = JOBS_SEED.map((seedJob) => {
-    const apiMatch = apiByName.get(normalizeName(seedJob.name));
-
-    if (!apiMatch) return { ...seedJob, source: "seed" };
-
-    const apiAbilities = stripPlaceholders(apiMatch.abilities);
-
-    if (apiAbilities.length === 0) {
-      return { ...seedJob, source: "seed+fandom" };
-    }
-
-    const apiNames = new Set(apiAbilities.map((a) => a.name));
-    const extras = seedJob.abilities.filter((a) => !apiNames.has(a.name));
-
-    return {
-      ...seedJob,
-      abilities: [...apiAbilities, ...extras],
-      source: "seed+fandom",
-    };
-  });
-
-  return merged
-    .filter((job) => ALLOWED_JOB_IDS.has(job.id))
-    .sort((a, b) => a.name.localeCompare(b.name));
-}
-
-export default function JobsPage() {
-  const [jobs, setJobs] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
+export default function JobsPage({
+  jobs = [],
+  isLoading = false,
+  errorMessage = "",
+}) {
   const [query, setQuery] = useState("");
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    async function loadJobs() {
-      try {
-        setIsLoading(true);
-        setErrorMessage("");
-
-        const data = await fetchJobsFromFandom({
-          signal: controller.signal,
-        });
-
-        setJobs(mergeJobsWithSeed(data));
-      } catch (err) {
-        if (err?.name === "AbortError") return;
-        setErrorMessage(err?.message || "Failed to load jobs from Fandom.");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    loadJobs();
-    return () => controller.abort();
-  }, []);
 
   const filteredJobs = useMemo(() => {
     const q = normalizeName(query);
@@ -146,7 +88,10 @@ export default function JobsPage() {
                     </header>
 
                     {abilities.length ? (
-                      <ul className="jobs-page__abilities" aria-label={`${job.name} abilities`}>
+                      <ul
+                        className="jobs-page__abilities"
+                        aria-label={`${job.name} abilities`}
+                      >
                         {abilities.map((a) => (
                           <li key={a.id || a.name} className="jobs-page__ability">
                             {a.name}
