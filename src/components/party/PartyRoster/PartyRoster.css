@@ -1,4 +1,4 @@
-roster {
+.roster {
   display: grid;
   gap: 12px;
   width: 100%;
@@ -16,12 +16,14 @@ roster {
 
 .roster__title {
   margin: 0;
+  min-width: 0;
 }
 
 .roster__header-actions {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .roster__btn {
@@ -59,6 +61,7 @@ roster {
   min-width: 0;
 }
 
+/* clickable card button */
 .roster__cardBtn {
   width: 100%;
   display: grid;
@@ -72,6 +75,11 @@ roster {
   border: 1px solid #4f3d23;
   background: #f9f0df;
   cursor: pointer;
+
+  /* ✅ normalize button */
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #4f3d23;
 
   transition:
     transform 120ms ease,
@@ -105,6 +113,7 @@ roster {
   overflow: hidden;
   border: 1px solid rgba(79, 61, 35, 0.6);
   background: #fffaf0;
+  min-width: 0;
 }
 
 .roster__portrait-img {
@@ -213,6 +222,7 @@ roster {
 .roster__hint {
   font-size: 0.85rem;
   opacity: 0.75;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 800px) {

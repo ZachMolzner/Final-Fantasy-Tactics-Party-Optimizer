@@ -1,49 +1,68 @@
-/* AboutPage.css */
-
+/* =========================
+   Theme Tokens (About Page)
+   ========================= */
 :root {
-  --ink: #1e1a14;
-  --muted-ink: rgba(30, 26, 20, 0.85);
-  --paper: #fbf6ea;
-  --paper-2: #f4ecd9;
+  /* ink + muted ink (boosted contrast) */
+  --ink: #14110c;
+  --muted-ink: rgba(20, 17, 12, 0.86);
+
+  /* paper (slightly less bright to reduce glare) */
+  --paper: #f7f0de;
+  --paper-2: #efe2c8;
+
   --edge: rgba(20, 16, 10, 0.22);
   --edge-strong: rgba(20, 16, 10, 0.35);
+
   --gold: #c9a227;
   --gold-2: #e8d27a;
+
   --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.1);
   --shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+
   --radius: 16px;
   --radius-lg: 22px;
 }
 
+/* =========================
+   Page Layout
+   ========================= */
 .about {
   max-width: 1050px;
   margin: 0 auto;
   padding: 18px 14px 28px;
   display: grid;
   gap: 14px;
+
   color: var(--ink);
+  min-width: 0;
 }
 
-/* Panels */
+/* =========================
+   Panels
+   ========================= */
 .about__panel {
   position: relative;
   padding: 18px;
   border-radius: var(--radius-lg);
+
   background:
     radial-gradient(
       1200px 500px at 20% -10%,
-      rgba(201, 162, 39, 0.18),
+      rgba(201, 162, 39, 0.14),
       transparent 55%
     ),
     radial-gradient(
       900px 420px at 95% 0%,
-      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0.28),
       transparent 60%
     ),
     linear-gradient(180deg, var(--paper), var(--paper-2));
+
   border: 1px solid var(--edge);
   box-shadow: var(--shadow-soft);
   overflow: hidden;
+
+  min-width: 0;
 }
 
 .about__panel::before {
@@ -55,7 +74,20 @@
   pointer-events: none;
 }
 
-/* Header / Hero */
+/* Optional glare reducer (keeps parchment vibe, improves readability) */
+.about__panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.12);
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+/* =========================
+   Header / Hero
+   ========================= */
 .about__header {
   padding: 22px 20px;
 }
@@ -65,23 +97,33 @@
   font-size: clamp(1.7rem, 3.2vw, 2.4rem);
   line-height: 1.1;
   letter-spacing: 0.2px;
+
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .about__subtitle {
   margin: 10px 0 0;
   font-weight: 800;
-  color: rgba(30, 26, 20, 0.78);
+
+  color: rgba(20, 17, 12, 0.78);
   max-width: 80ch;
+  line-height: 1.35;
+
+  overflow-wrap: anywhere;
 }
 
-/* Grid layout */
+/* =========================
+   Grid layout
+   ========================= */
 .about__grid {
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  min-width: 0;
 }
 
-/* Each article panel spans columns for a “magazine” feel */
+/* “Magazine” spans */
 .about__grid > article:nth-child(1) {
   grid-column: span 7;
 }
@@ -101,6 +143,7 @@
   grid-column: span 6;
 }
 
+/* On smaller screens, 1 card per row for readability */
 @media (max-width: 980px) {
   .about__grid > article {
     grid-column: span 12;
@@ -111,88 +154,120 @@
   margin: 0 0 10px;
   font-size: 1.05rem;
   letter-spacing: 0.2px;
+
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .about__text {
   margin: 8px 0 0;
   color: var(--muted-ink);
-  line-height: 1.45;
+  line-height: 1.6;
+  font-size: 1rem;
   max-width: 80ch;
+  overflow-wrap: anywhere;
 }
 
-/* Lists */
+/* =========================
+   Lists
+   ========================= */
 .about__list {
   margin: 0;
   padding-left: 18px;
   color: var(--muted-ink);
+  min-width: 0;
 }
 
 .about__list-item {
   margin: 8px 0;
-  line-height: 1.35;
+  line-height: 1.55;
+  color: var(--muted-ink);
+  overflow-wrap: anywhere;
 }
 
-/* Callouts */
+/* =========================
+   Callouts
+   ========================= */
 .about__callout {
   margin: 12px 0 0;
   padding: 10px 12px;
   border-radius: 14px;
+
   border: 1px solid rgba(201, 162, 39, 0.35);
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.62);
+
   box-shadow: 0 10px 16px rgba(0, 0, 0, 0.08);
+
   font-weight: 800;
-  color: rgba(30, 26, 20, 0.86);
+  color: rgba(20, 17, 12, 0.88);
+
+  overflow-wrap: anywhere;
 }
 
 .about__callout--warning {
   border-color: rgba(150, 60, 60, 0.35);
-  background: rgba(255, 245, 245, 0.7);
+  background: rgba(255, 245, 245, 0.78);
   color: rgba(106, 47, 47, 0.95);
 }
 
-/* Code block (API) */
+/* =========================
+   Code block (API)
+   ========================= */
 .about__code {
   margin-top: 10px;
   padding: 12px 12px;
   border-radius: 16px;
-  border: 1px solid rgba(20, 16, 10, 0.18);
+
+  border: 1px solid rgba(20, 16, 10, 0.22);
   background:
     radial-gradient(
       900px 250px at 10% 0%,
-      rgba(201, 162, 39, 0.1),
+      rgba(201, 162, 39, 0.08),
       transparent 60%
     ),
-    rgba(255, 255, 255, 0.72);
+    rgba(255, 255, 255, 0.78);
+
   box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1);
+
   font-family:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
+
   font-size: 0.92rem;
-  color: rgba(30, 26, 20, 0.92);
-  word-break: break-all;
+  color: rgba(20, 17, 12, 0.92);
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
-/* Actions / Buttons */
+/* =========================
+   Actions / Buttons
+   ========================= */
 .about__actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 12px;
+  min-width: 0;
 }
 
 .about__button {
   padding: 10px 14px;
   border-radius: 14px;
   border: 1px solid var(--edge-strong);
-  background: rgba(255, 255, 255, 0.5);
+
+  background: rgba(255, 255, 255, 0.55);
   color: var(--ink);
+
   cursor: pointer;
+
   box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
   transition:
     transform 140ms ease,
     box-shadow 140ms ease,
     border-color 140ms ease,
     background 140ms ease;
+
   font: inherit;
   font-weight: 800;
 }
@@ -216,9 +291,33 @@
 .about__button--secondary {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.55),
-    rgba(243, 239, 229, 0.9)
+    rgba(255, 255, 255, 0.6),
+    rgba(243, 239, 229, 0.92)
   );
+}
+
+/* =========================
+   Responsive readability
+   ========================= */
+@media (max-width: 640px) {
+  .about {
+    padding: 16px 12px 24px;
+  }
+
+  .about__header {
+    padding: 18px 16px;
+  }
+
+  .about__text,
+  .about__list,
+  .about__list-item {
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .about__subtitle {
+    font-size: 1rem;
+  }
 }
 
 /* Reduce motion */

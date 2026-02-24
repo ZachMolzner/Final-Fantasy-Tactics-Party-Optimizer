@@ -1,3 +1,7 @@
+/* =========================
+   Global Reset + Layout
+   ========================= */
+
 *,
 *::before,
 *::after {
@@ -11,8 +15,7 @@ body {
   min-width: 320px;
 }
 
-/* ✅ DO NOT hide horizontal scrolling here
-   (review requires you to fix layout instead of clipping) */
+/* Allow natural overflow so layout bugs are visible */
 html {
   overflow-x: auto;
 }
@@ -27,16 +30,20 @@ body {
     Arial,
     sans-serif
   );
+
   color: var(--text);
+
   background: radial-gradient(
     circle at 20% 10%,
     #2d2d2d 0%,
     #151515 60%,
     #0d0d0d 100%
   );
-  overflow-x: auto; /* ✅ allow if something breaks so you can detect it */
+
+  overflow-x: auto;
 }
 
+/* Root app wrapper */
 #root {
   min-height: 100vh;
   display: flex;
@@ -44,7 +51,10 @@ body {
   min-width: 0;
 }
 
-/* Text safety: prevents long strings from forcing width */
+/* =========================
+   Typography Safety
+   ========================= */
+
 p,
 h1,
 h2,
@@ -63,7 +73,10 @@ a {
   color: inherit;
 }
 
-/* Media should never exceed container width */
+/* =========================
+   Media + Controls
+   ========================= */
+
 img,
 svg,
 video,
@@ -73,7 +86,6 @@ canvas {
   display: block;
 }
 
-/* Form controls should not exceed container width */
 button,
 input,
 select,
@@ -82,7 +94,10 @@ textarea {
   max-width: 100%;
 }
 
-/* App layout */
+/* =========================
+   App Layout
+   ========================= */
+
 .app-shell {
   min-height: 100vh;
   display: flex;
@@ -90,38 +105,54 @@ textarea {
   min-width: 0;
 }
 
+/* Main content wrapper */
 .app-main {
   flex: 1;
   width: 100%;
-  padding: 16px;
+  padding: clamp(16px, 2vw, 28px);
   min-width: 0;
 }
 
+/* Wider desktop container so layout isn’t crunched */
 .page-container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px; /* was 1100px */
   margin: 0 auto;
   min-width: 0;
 }
 
-@media (min-width: 768px) {
-  .app-main {
-    padding: 20px;
+/* Larger screens get a bit more breathing room */
+@media (min-width: 1400px) {
+  .page-container {
+    max-width: 1500px;
   }
 }
 
-/* Panels */
+/* Slightly tighter on tablets */
+@media (max-width: 768px) {
+  .app-main {
+    padding: 16px;
+  }
+}
+
+/* =========================
+   Panels
+   ========================= */
+
 .page-panel {
   width: 100%;
   max-width: 100%;
   background: var(--panel-2);
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: var(--radius);
-  padding: 16px;
+  padding: clamp(14px, 1.5vw, 18px);
   min-width: 0;
 }
 
-/* Utility */
+/* =========================
+   Utility
+   ========================= */
+
 .minw-0 {
   min-width: 0;
 }

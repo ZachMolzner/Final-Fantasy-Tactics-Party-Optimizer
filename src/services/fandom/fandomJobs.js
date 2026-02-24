@@ -3,7 +3,7 @@ import {
   DEFAULT_FANDOM_CATEGORY,
   DEFAULT_BATCH_SIZE,
   DEFAULT_THROTTLE_MS,
-} from "./config";
+} from "../../utils/config";
 import { JOBS as JOBS_SEED } from "../../data/jobs.seed";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

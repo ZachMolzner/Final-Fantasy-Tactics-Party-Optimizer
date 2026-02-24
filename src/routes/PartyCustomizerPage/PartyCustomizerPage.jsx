@@ -1,3 +1,4 @@
+// src/routes/PartyCustomizerPage/PartyCustomizerPage.jsx
 import { useEffect, useMemo, useState } from "react";
 import PartyRoster from "../../components/party/PartyRoster/PartyRoster";
 import UnitSheet from "../../components/party/UnitSheet/UnitSheet";
@@ -93,8 +94,6 @@ export default function PartyCustomizerPage() {
 
   // if party name changes from load/default, sync input (but don't fight user typing)
   useEffect(() => {
-    // Only sync when a build is loaded or first mount-ish behavior:
-    // If user is typing in saveName, they control it.
     if (!saveName) setSaveName(party.name);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [party.id]);
@@ -139,7 +138,7 @@ export default function PartyCustomizerPage() {
     setActiveUnitId(nextUnits[0].id);
   };
 
-  // ✅ SAVE: overwrites if a build is currently selected, otherwise creates new
+  // SAVE: overwrites if a build is currently selected, otherwise creates new
   const saveBuild = () => {
     const name = saveName.trim();
     if (!name) {
@@ -167,7 +166,7 @@ export default function PartyCustomizerPage() {
     setToast("Saved!");
   };
 
-  // ✅ LOAD: controlled select + updates name input + active unit
+  // LOAD: controlled select + updates name input + active unit
   const loadBuild = (id) => {
     if (!id) return;
 
@@ -181,7 +180,7 @@ export default function PartyCustomizerPage() {
     }
   };
 
-  // ✅ COPY: exports a wrapped payload (versioned), with error handling
+  // COPY: exports a wrapped payload (versioned), with error handling
   const copyBuild = async () => {
     const payload = {
       v: 1,
@@ -198,34 +197,47 @@ export default function PartyCustomizerPage() {
 
   return (
     <main className="party-customizer">
-      <div className="party-customizer__actions">
-        <input
-          className="party-customizer__input"
-          value={saveName}
-          onChange={(e) => setSaveName(e.target.value)}
-          placeholder="Build name"
-        />
+      {/* ✅ Semantic form controls + labels + required */}
+      <form
+        className="party-customizer__actions"
+        onSubmit={(e) => {
+          e.preventDefault();
+          saveBuild();
+        }}
+      >
+        <label className="party-customizer__field">
+          <span className="party-customizer__label">Build name</span>
+          <input
+            className="party-customizer__input"
+            value={saveName}
+            onChange={(e) => setSaveName(e.target.value)}
+            placeholder="e.g., Ramza Core / Mage Squad"
+            required
+          />
+        </label>
 
         <button
           className="party-customizer__button party-customizer__button--primary"
-          type="button"
-          onClick={saveBuild}
+          type="submit"
         >
           Save Build
         </button>
 
-        <select
-          className="party-customizer__select"
-          value={selectedBuildId}
-          onChange={(e) => loadBuild(e.target.value)}
-        >
-          <option value="">Load Build</option>
-          {savedBuilds.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.name}
-            </option>
-          ))}
-        </select>
+        <label className="party-customizer__field">
+          <span className="party-customizer__label">Load build</span>
+          <select
+            className="party-customizer__select"
+            value={selectedBuildId}
+            onChange={(e) => loadBuild(e.target.value)}
+          >
+            <option value="">Select a build…</option>
+            {savedBuilds.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+        </label>
 
         <button
           className="party-customizer__button party-customizer__button--secondary"
@@ -234,7 +246,7 @@ export default function PartyCustomizerPage() {
         >
           Copy Build Code
         </button>
-      </div>
+      </form>
 
       {toast ? <div className="party-customizer__toast">{toast}</div> : null}
 

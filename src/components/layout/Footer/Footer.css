@@ -24,7 +24,6 @@
   isolation: isolate;
 }
 
-/* Subtle parchment texture */
 .site-footer::before {
   content: "";
   position: absolute;
@@ -56,7 +55,6 @@
   opacity: 0.55;
 }
 
-/* subtle top glow */
 .site-footer::after {
   content: "";
   position: absolute;

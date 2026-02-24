@@ -1,6 +1,6 @@
 // src/app/App.jsx
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Header from "../components/layout/Header/Header";
 import Footer from "../components/layout/Footer/Footer";
@@ -51,14 +51,10 @@ function mergeJobsWithSeed(apiJobs) {
 
   const merged = JOBS_SEED.map((seedJob) => {
     const apiMatch = apiByName.get(normalizeName(seedJob.name));
-
     if (!apiMatch) return { ...seedJob, source: "seed" };
 
     const apiAbilities = stripPlaceholders(apiMatch.abilities);
-
-    if (apiAbilities.length === 0) {
-      return { ...seedJob, source: "seed+fandom" };
-    }
+    if (apiAbilities.length === 0) return { ...seedJob, source: "seed+fandom" };
 
     const apiNames = new Set(apiAbilities.map((a) => a.name));
     const extras = seedJob.abilities.filter((a) => !apiNames.has(a.name));
@@ -88,10 +84,7 @@ function App() {
         setJobsLoading(true);
         setJobsError("");
 
-        const data = await fetchJobsFromFandom({
-          signal: controller.signal,
-        });
-
+        const data = await fetchJobsFromFandom({ signal: controller.signal });
         setJobs(mergeJobsWithSeed(data));
       } catch (err) {
         if (err?.name === "AbortError") return;
@@ -105,8 +98,6 @@ function App() {
     return () => controller.abort();
   }, []);
 
-  const jobsData = useMemo(() => jobs, [jobs]);
-
   return (
     <div className="app-shell">
       <Header />
@@ -117,12 +108,11 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
 
-            {}
             <Route
               path="/jobs"
               element={
                 <JobsPage
-                  jobs={jobsData}
+                  jobs={jobs}
                   isLoading={jobsLoading}
                   errorMessage={jobsError}
                 />

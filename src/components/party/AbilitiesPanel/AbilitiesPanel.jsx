@@ -2,7 +2,9 @@ import { useMemo, useState } from "react";
 import "./AbilitiesPanel.css";
 
 function normalize(str) {
-  return String(str || "").toLowerCase().trim();
+  return String(str || "")
+    .toLowerCase()
+    .trim();
 }
 
 export default function AbilitiesPanel({ job, unlockedIds = [], onToggle }) {
@@ -11,16 +13,21 @@ export default function AbilitiesPanel({ job, unlockedIds = [], onToggle }) {
 
   const allTags = useMemo(() => {
     const set = new Set();
+
     (job?.abilities || []).forEach((a) =>
       (a.tags || []).forEach((t) => set.add(t)),
     );
+
     const priority = ["action", "reaction", "support", "movement"];
+
     return [...set].sort((a, b) => {
       const ia = priority.indexOf(a);
       const ib = priority.indexOf(b);
+
       if (ia !== -1 || ib !== -1) {
         return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
       }
+
       return a.localeCompare(b);
     });
   }, [job]);
@@ -45,6 +52,7 @@ export default function AbilitiesPanel({ job, unlockedIds = [], onToggle }) {
 
   return (
     <section className="party-customizer__abilities" aria-label="Abilities">
+      {/* Search */}
       <div className="party-customizer__field">
         <label className="party-customizer__label" htmlFor={searchId}>
           Search abilities
@@ -58,7 +66,12 @@ export default function AbilitiesPanel({ job, unlockedIds = [], onToggle }) {
         />
       </div>
 
-      <div className="party-customizer__tags" role="group" aria-label="Tag filters">
+      {/* Tag Filters */}
+      <div
+        className="party-customizer__tags"
+        role="group"
+        aria-label="Tag filters"
+      >
         {allTags.map((t) => (
           <button
             key={t}
@@ -89,12 +102,16 @@ export default function AbilitiesPanel({ job, unlockedIds = [], onToggle }) {
         )}
       </div>
 
+      {/* Ability List */}
       {filtered.length === 0 ? (
         <div className="party-customizer__empty" role="status">
           No abilities match your search/filter.
         </div>
       ) : (
-        <ul className="party-customizer__ability-list" aria-label="Ability list">
+        <ul
+          className="party-customizer__ability-list"
+          aria-label="Ability list"
+        >
           {filtered.map((a) => (
             <li className="party-customizer__ability-item" key={a.id}>
               <article className="party-customizer__ability-card">
@@ -108,14 +125,21 @@ export default function AbilitiesPanel({ job, unlockedIds = [], onToggle }) {
                       type="checkbox"
                       checked={unlockedIds.includes(a.id)}
                       onChange={() => onToggle(a.id)}
-                    />{" "}
+                    />
                     Unlocked
                   </label>
                 </div>
 
-                <div className="party-customizer__tags" aria-label="Ability tags">
+                {/* Non-clickable ability tag chips */}
+                <div
+                  className="party-customizer__ability-tags"
+                  aria-label="Ability tags"
+                >
                   {(a.tags || []).map((tag) => (
-                    <span className="party-customizer__tag" key={tag}>
+                    <span
+                      className="party-customizer__chip"
+                      key={`${a.id}-${tag}`}
+                    >
                       {tag}
                     </span>
                   ))}

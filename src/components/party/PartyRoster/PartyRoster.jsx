@@ -63,7 +63,7 @@ export default function PartyRoster({
                   isActive ? "roster__card--active" : ""
                 }`}
               >
-                {/* ✅ Button inside article keeps card clickable */}
+                {/* Button inside article keeps card clickable */}
                 <button
                   type="button"
                   className="roster__cardBtn"
@@ -99,7 +99,9 @@ export default function PartyRoster({
                       {u.characterId && u.characterId !== "none" ? (
                         <>
                           <span className="roster__dot">•</span>
-                          <span className="roster__unique">{u.characterId}</span>
+                          <span className="roster__unique">
+                            {u.characterId}
+                          </span>
                         </>
                       ) : null}
                     </div>

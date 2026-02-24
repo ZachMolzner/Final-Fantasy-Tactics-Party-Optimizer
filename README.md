@@ -220,6 +220,7 @@ Final-Fantasy-Tactics-Party-Optimizer/
 ├── package.json
 ├── vite.config.js
 └── README.md
+
 💾 Data Model
 
 Each unit stores:

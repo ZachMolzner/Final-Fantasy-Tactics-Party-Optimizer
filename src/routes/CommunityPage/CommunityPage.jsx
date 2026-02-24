@@ -1,4 +1,3 @@
-// src/routes/CommunityPage/CommunityPage.jsx
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
@@ -41,7 +40,7 @@ export default function CommunityPage() {
 
   const authorName = profile?.displayName || "Adventurer";
 
-  // ✅ Lazy-init from storage (fixes react-hooks/set-state-in-effect)
+  // Lazy-init from storage (fixes react-hooks/set-state-in-effect)
   const [savedParties, setSavedParties] = useState(() => readSavedParties());
   const [posts, setPosts] = useState(() => readCommunityPosts());
 
@@ -109,7 +108,7 @@ export default function CommunityPage() {
     setNotice("Posted!");
   };
 
-  // ✅ Prevent duplicate saves from same post
+  // Prevent duplicate saves from same post
   const saveBuildFromPost = (post) => {
     const alreadySaved = savedParties.some(
       (p) => p.sourcePostId === post.postId,
@@ -136,13 +135,13 @@ export default function CommunityPage() {
     setNotice("Saved to your builds.");
   };
 
-  // ✅ Use your storage helper (KEYS.active = "fft_active_party")
+  // Use your storage helper (KEYS.active = "fft_active_party")
   const openInCustomizer = (post) => {
     writeActiveParty(post.partyData);
     navigate("/party-customizer");
   };
 
-  // ✅ Delete post (author-only via UI)
+  // Delete post (author-only via UI)
   const deletePost = (postId) => {
     const next = posts.filter((p) => p.postId !== postId);
     setPosts(next);

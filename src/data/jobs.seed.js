@@ -1,5 +1,3 @@
-// src/data/jobs.seed.js
-
 const RAW_JOBS = [
   // ============================================================
   // GENERIC JOBS
