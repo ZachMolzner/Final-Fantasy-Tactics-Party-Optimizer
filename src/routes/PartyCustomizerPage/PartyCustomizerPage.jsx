@@ -1,4 +1,3 @@
-// src/routes/PartyCustomizerPage/PartyCustomizerPage.jsx
 import { useEffect, useMemo, useState } from "react";
 import PartyRoster from "../../components/party/PartyRoster/PartyRoster";
 import UnitSheet from "../../components/party/UnitSheet/UnitSheet";
@@ -197,7 +196,7 @@ export default function PartyCustomizerPage() {
 
   return (
     <main className="party-customizer">
-      {/* ✅ Semantic form controls + labels + required */}
+      {/* Semantic form controls + labels + required */}
       <form
         className="party-customizer__actions"
         onSubmit={(e) => {

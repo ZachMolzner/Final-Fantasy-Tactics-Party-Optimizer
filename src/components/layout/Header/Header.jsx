@@ -6,8 +6,8 @@ import "./Header.css";
 export default function Header() {
   const { isAuthenticated, profile, logout } = useAuth();
 
-  const [open, setOpen] = useState(false); // user dropdown
-  const [mobileOpen, setMobileOpen] = useState(false); // mobile drawer
+  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const userMenuRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -106,7 +106,9 @@ export default function Header() {
                   <span className="site-header__userName">
                     {profile?.displayName || "Commander"}
                   </span>
-                  <span className={`site-header__chev ${open ? "is-open" : ""}`}>
+                  <span
+                    className={`site-header__chev ${open ? "is-open" : ""}`}
+                  >
                     ▾
                   </span>
                 </button>
@@ -159,7 +161,9 @@ export default function Header() {
       </div>
 
       {/* Overlay */}
-      {mobileOpen ? <div className="site-header__overlay" aria-hidden="true" /> : null}
+      {mobileOpen ? (
+        <div className="site-header__overlay" aria-hidden="true" />
+      ) : null}
 
       {/* Mobile drawer */}
       <div

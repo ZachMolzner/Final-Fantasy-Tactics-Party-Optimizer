@@ -1,4 +1,3 @@
-// src/app/providers.jsx
 import { AuthProvider } from "../context/AuthContext";
 // Future providers can be added here later:
 // import { ThemeProvider } from "../context/ThemeContext";

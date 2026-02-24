@@ -119,7 +119,7 @@
 }
 
 /* =========================
-   Ability tag chips (SPANS) ✅ not clickable
+   Ability tag chips (SPANS) not clickable
    ========================= */
 
 .party-customizer__ability-tags {
@@ -141,7 +141,7 @@
   color: rgba(59, 43, 21, 0.92);
 
   max-width: 100%;
-  cursor: default; /* important */
+  cursor: default;
   user-select: none;
 }
 

@@ -1,4 +1,3 @@
-// src/app/App.jsx
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 
