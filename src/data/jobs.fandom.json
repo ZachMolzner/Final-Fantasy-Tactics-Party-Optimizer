@@ -1,0 +1,2098 @@
+[
+  {
+    "id": "archer",
+    "name": "Archer",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Archer (Tactics)",
+    "abilities": [
+      {
+        "id": "archer_speed_surge",
+        "name": "Speed Surge",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "archer_archer_s_bane",
+        "name": "Archer's Bane",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "archer_equip_crossbows",
+        "name": "Equip Crossbows",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "archer_concentration",
+        "name": "Concentration",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "archer_jump_1",
+        "name": "Jump +1",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "ranged",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "arithmetician",
+    "name": "Arithmetician",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Arithmetician (Tactics)",
+    "abilities": [
+      {
+        "id": "arithmetician_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "arithmetician_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "arithmetician_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "ark_knight",
+    "name": "Ark Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Ark Knight",
+    "abilities": [
+      {
+        "id": "ark_knight_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "ark_knight_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "ark_knight_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "assassin",
+    "name": "Assassin",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Assassin (Tactics)",
+    "abilities": [
+      {
+        "id": "assassin_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "assassin_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "assassin_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "astrologer",
+    "name": "Astrologer",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Astrologer (Tactics)",
+    "abilities": [
+      {
+        "id": "astrologer_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "astrologer_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "astrologer_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "bard",
+    "name": "Bard",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Bard (Tactics)",
+    "abilities": [
+      {
+        "id": "bard_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "bard_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "bard_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "black_mage",
+    "name": "Black Mage",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Black Mage (Tactics)",
+    "abilities": [
+      {
+        "id": "black_mage_magick_counter",
+        "name": "Magick Counter",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "black_mage_magick_boost",
+        "name": "Magick Boost",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "black_mage_none",
+        "name": "None",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "celebrant",
+    "name": "Celebrant",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Celebrant",
+    "abilities": [
+      {
+        "id": "celebrant_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "celebrant_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "celebrant_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "chemist",
+    "name": "Chemist",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Chemist (Tactics)",
+    "abilities": [
+      {
+        "id": "chemist_auto_potion",
+        "name": "Auto-Potion",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction",
+          "heal"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "chemist_throw_items",
+        "name": "Throw Items",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support",
+          "ranged"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "chemist_safeguard",
+        "name": "Safeguard",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "chemist_reequip",
+        "name": "Reequip",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "chemist_treasure_hunter",
+        "name": "Treasure Hunter",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "cleric",
+    "name": "Cleric",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Cleric (Tactics)",
+    "abilities": [
+      {
+        "id": "cleric_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "cleric_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "cleric_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "dancer",
+    "name": "Dancer",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Dancer (Tactics)",
+    "abilities": [
+      {
+        "id": "dancer_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "dancer_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "dancer_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "dark_knight",
+    "name": "Dark Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Dark Knight (Tactics)",
+    "abilities": [
+      {
+        "id": "dark_knight_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "dark_knight_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "dark_knight_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "deathknight",
+    "name": "Deathknight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Deathknight (Tactics)",
+    "abilities": [
+      {
+        "id": "deathknight_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "deathknight_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "deathknight_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "divine_knight",
+    "name": "Divine Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Divine Knight (Tactics)",
+    "abilities": [
+      {
+        "id": "divine_knight_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "divine_knight_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "divine_knight_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "dragonkin",
+    "name": "Dragonkin",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Dragonkin",
+    "abilities": [
+      {
+        "id": "dragonkin_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "dragonkin_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "dragonkin_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "dragoon",
+    "name": "Dragoon",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Dragoon (Tactics)",
+    "abilities": [
+      {
+        "id": "dragoon_dragonheart",
+        "name": "Dragonheart",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "dragoon_equip_polearms",
+        "name": "Equip Polearms",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "dragoon_ignore_elevation",
+        "name": "Ignore Elevation",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "fell_knight",
+    "name": "Fell Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Fell Knight (Tactics)",
+    "abilities": [
+      {
+        "id": "fell_knight_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "fell_knight_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "fell_knight_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "gallant_knight",
+    "name": "Gallant Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Gallant Knight",
+    "abilities": [
+      {
+        "id": "gallant_knight_counter_tackle",
+        "name": "Counter Tackle",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "gallant_knight_equip_axes",
+        "name": "Equip Axes",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "gallant_knight_beastmaster",
+        "name": "Beastmaster",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "gallant_knight_evasive_stance",
+        "name": "Evasive Stance",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "gallant_knight_jp_boost",
+        "name": "JP Boost",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "gallant_knight_movement_1",
+        "name": "Movement +1",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "game_hunter",
+    "name": "Game Hunter",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Game Hunter",
+    "abilities": [
+      {
+        "id": "game_hunter_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "game_hunter_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "game_hunter_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "geomancer",
+    "name": "Geomancer",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Geomancer (Tactics)",
+    "abilities": [
+      {
+        "id": "geomancer_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "geomancer_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "geomancer_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "holy_knight",
+    "name": "Holy Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Holy Knight (Tactics)",
+    "abilities": [
+      {
+        "id": "holy_knight_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "holy_knight_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "holy_knight_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "knight",
+    "name": "Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Knight (Tactics)",
+    "abilities": [
+      {
+        "id": "knight_parry",
+        "name": "Parry",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "knight_equip_heavy_armor",
+        "name": "Equip Heavy Armor",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "knight_equip_shields",
+        "name": "Equip Shields",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "knight_equip_swords",
+        "name": "Equip Swords",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "knight_none",
+        "name": "None",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "machinist",
+    "name": "Machinist",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Machinist (Tactics)",
+    "abilities": [
+      {
+        "id": "machinist_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "machinist_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "machinist_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "mime",
+    "name": "Mime",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Mime (Tactics)",
+    "abilities": [
+      {
+        "id": "mime_see_innate_abilities",
+        "name": "See innate abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "monk",
+    "name": "Monk",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Monk (Tactics)",
+    "abilities": [
+      {
+        "id": "monk_recover_hp",
+        "name": "Recover HP",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "monk_counter",
+        "name": "Counter",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "monk_first_strike",
+        "name": "First Strike",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction",
+          "damage",
+          "aoe"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "monk_brawler",
+        "name": "Brawler",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "monk_lifefont",
+        "name": "Lifefont",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "mystic",
+    "name": "Mystic",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Mystic (Tactics)",
+    "abilities": [
+      {
+        "id": "mystic_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "mystic_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "mystic_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "netherseer",
+    "name": "Netherseer",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Netherseer",
+    "abilities": [
+      {
+        "id": "netherseer_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "netherseer_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "netherseer_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "nightblade",
+    "name": "Nightblade",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Nightblade (Tactics)",
+    "abilities": [
+      {
+        "id": "nightblade_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "nightblade_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "nightblade_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "ninja",
+    "name": "Ninja",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Ninja (Tactics)",
+    "abilities": [
+      {
+        "id": "ninja_vanish",
+        "name": "Vanish",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "ninja_reflexes",
+        "name": "Reflexes",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "ninja_dual_wield",
+        "name": "Dual Wield",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "ninja_waterwalking",
+        "name": "Waterwalking",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "onion_knight",
+    "name": "Onion Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Onion Knight (Tactics)",
+    "abilities": [
+      {
+        "id": "onion_knight_none",
+        "name": "None",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "orator",
+    "name": "Orator",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Orator (Tactics)",
+    "abilities": [
+      {
+        "id": "orator_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "orator_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "orator_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "princess",
+    "name": "Princess",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Princess (job)",
+    "abilities": [
+      {
+        "id": "princess_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "princess_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "princess_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "rune_knight",
+    "name": "Rune Knight",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Rune Knight (Tactics)",
+    "abilities": [
+      {
+        "id": "rune_knight_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "rune_knight_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "rune_knight_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "samurai",
+    "name": "Samurai",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Samurai (Tactics)",
+    "abilities": [
+      {
+        "id": "samurai_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "samurai_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "samurai_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "sky_pirate",
+    "name": "Sky Pirate",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Sky Pirate (Tactics)",
+    "abilities": [
+      {
+        "id": "sky_pirate_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "sky_pirate_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "sky_pirate_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "skyseer",
+    "name": "Skyseer",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Skyseer",
+    "abilities": [
+      {
+        "id": "skyseer_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "skyseer_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "skyseer_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "soldier",
+    "name": "Soldier",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Soldier (Tactics)",
+    "abilities": [
+      {
+        "id": "soldier_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "soldier_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "soldier_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "sorcerer",
+    "name": "Sorcerer",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Sorcerer (Tactics)",
+    "abilities": [
+      {
+        "id": "sorcerer_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "sorcerer_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "sorcerer_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "squire",
+    "name": "Squire",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Squire (Tactics)",
+    "abilities": [
+      {
+        "id": "squire_counter_tackle",
+        "name": "Counter Tackle",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "squire_equip_axes",
+        "name": "Equip Axes",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "squire_beastmaster",
+        "name": "Beastmaster",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "squire_evasive_stance",
+        "name": "Evasive Stance",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "squire_jp_boost",
+        "name": "JP Boost",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "squire_movement_1",
+        "name": "Movement +1",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "summoner",
+    "name": "Summoner",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Summoner (Tactics)",
+    "abilities": [
+      {
+        "id": "summoner_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "summoner_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "sword_saint",
+    "name": "Sword Saint",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Sword Saint (Tactics)",
+    "abilities": [
+      {
+        "id": "sword_saint_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "sword_saint_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "sword_saint_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "templar",
+    "name": "Templar",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Templar (Tactics)",
+    "abilities": [
+      {
+        "id": "templar_see_reaction_abilities",
+        "name": "See reaction abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "templar_support_abilities",
+        "name": "support abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "templar_movement_abilities",
+        "name": "movement abilities",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "thief",
+    "name": "Thief",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Thief (Tactics)",
+    "abilities": [
+      {
+        "id": "thief_vigilance",
+        "name": "Vigilance",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "thief_gil_snapper",
+        "name": "Gil Snapper",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "thief_sticky_fingers",
+        "name": "Sticky Fingers",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "thief_poach",
+        "name": "Poach",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "thief_move_2",
+        "name": "Move +2",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "thief_jump_2",
+        "name": "Jump +2",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "ranged",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "time_mage",
+    "name": "Time Mage",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "Time Mage (Tactics)",
+    "abilities": [
+      {
+        "id": "time_mage_critical_quick",
+        "name": "Critical: Quick",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction",
+          "buff"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "time_mage_mana_shield",
+        "name": "Mana Shield",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "time_mage_swiftspell",
+        "name": "Swiftspell",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "time_mage_teleport",
+        "name": "Teleport",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "time_mage_levitate",
+        "name": "Levitate",
+        "type": "movement",
+        "jpCost": null,
+        "tags": [
+          "movement",
+          "mobility"
+        ],
+        "source": "fandom"
+      }
+    ]
+  },
+  {
+    "id": "white_mage",
+    "name": "White Mage",
+    "tier": 1,
+    "category": "Generic",
+    "actionCommand": "",
+    "uniqueCharacterId": null,
+    "genderRequirement": null,
+    "source": "fandom",
+    "sourcePage": "White Mage (Tactics)",
+    "abilities": [
+      {
+        "id": "white_mage_regenerate",
+        "name": "Regenerate",
+        "type": "reaction",
+        "jpCost": null,
+        "tags": [
+          "reaction",
+          "heal"
+        ],
+        "source": "fandom"
+      },
+      {
+        "id": "white_mage_magick_defense_boost",
+        "name": "Magick Defense Boost",
+        "type": "support",
+        "jpCost": null,
+        "tags": [
+          "support"
+        ],
+        "source": "fandom"
+      }
+    ]
+  }
+]

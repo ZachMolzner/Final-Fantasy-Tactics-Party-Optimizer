@@ -1,0 +1,14 @@
+:root {
+  --bg-stone: #151515;
+  --panel: #e8d9c2;
+  --panel-2: rgba(255, 255, 255, 0.55);
+  --border: #3b2f2f;
+  --gold: #c9a227;
+  --text: #1e1a14;
+  --hp: #63b36b;
+  --mp: #4a86c5;
+  --warn: #b57a2a;
+  --danger: #b04a4a;
+  --radius: 12px;
+  --gap: 16px;
+}

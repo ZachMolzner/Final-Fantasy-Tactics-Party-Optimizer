@@ -1,0 +1,200 @@
+.party-customizer {
+  color: var(--text);
+  width: 100%;
+  min-width: 0;
+}
+
+/* =====================================
+   ACTION BAR (Centered + Responsive)
+===================================== */
+
+.party-customizer__actions {
+  display: grid;
+  gap: 12px;
+  align-items: end;
+
+  max-width: 900px;
+  margin: 0 auto 18px;
+
+  grid-template-columns:
+    minmax(260px, 1fr)
+    auto
+    minmax(220px, 300px)
+    auto;
+
+  /* Readability Panel */
+  background: rgba(255, 248, 230, 0.85);
+  border: 1px solid rgba(58, 45, 26, 0.25);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.party-customizer__actions > * {
+  min-width: 0;
+}
+
+/* Force readable text inside action bar */
+.party-customizer__actions,
+.party-customizer__actions label,
+.party-customizer__actions span {
+  color: #2b1d0e;
+  text-shadow: none;
+}
+
+.party-customizer__input,
+.party-customizer__select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(58, 45, 26, 0.45);
+  background: #fffaf0;
+  width: 100%;
+  min-width: 0;
+  color: #2b1d0e;
+  font-weight: 600;
+}
+
+.party-customizer__input::placeholder {
+  color: rgba(43, 29, 14, 0.65);
+  opacity: 1;
+}
+
+.party-customizer__select option {
+  color: #2b1d0e;
+}
+
+.party-customizer__button {
+  height: 42px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #3a2d1a;
+  cursor: pointer;
+  font-weight: 700;
+  white-space: nowrap;
+  align-self: end;
+  color: #1f1407;
+  transition: all 0.2s ease;
+}
+
+.party-customizer__button:hover {
+  transform: translateY(-1px);
+}
+
+.party-customizer__button--primary {
+  background: var(--gold);
+}
+
+.party-customizer__button--secondary {
+  background: #efe4d0;
+  border-color: rgba(58, 45, 26, 0.55);
+  color: #2b1d0e;
+}
+
+.party-customizer__toast {
+  margin: 10px auto 0;
+  max-width: 900px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(79, 61, 35, 0.28);
+  background: rgba(255, 255, 255, 0.35);
+  font-weight: 800;
+  opacity: 0.9;
+  overflow-wrap: anywhere;
+  color: #2b1d0e;
+}
+
+/* =====================================
+   MAIN 3-COLUMN LAYOUT
+===================================== */
+
+.party-customizer__layout {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+  min-width: 0;
+
+  grid-template-columns:
+    minmax(0, 280px)
+    minmax(0, 1fr)
+    minmax(0, 320px);
+}
+
+.party-customizer__layout > * {
+  min-width: 0;
+}
+
+/* =====================================
+   PANELS
+===================================== */
+
+.party-customizer__panel {
+  width: 100%;
+  min-width: 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.party-customizer__panel * {
+  min-width: 0;
+}
+
+.party-customizer__panel-title {
+  margin: 0 0 12px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+}
+
+/* =====================================
+   BREAKPOINTS
+===================================== */
+
+@media (max-width: 1200px) {
+  .party-customizer__layout {
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  }
+
+  .party-customizer__report {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 980px) {
+  .party-customizer__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .party-customizer__report {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .party-customizer__actions {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .party-customizer__button,
+  .party-customizer__select,
+  .party-customizer__input {
+    width: 100%;
+    height: auto;
+  }
+
+  .party-customizer__toast {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .party-customizer__layout {
+    gap: 14px;
+  }
+
+  .party-customizer__panel {
+    padding: 14px;
+  }
+}

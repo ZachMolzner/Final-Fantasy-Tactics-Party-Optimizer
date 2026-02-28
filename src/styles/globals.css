@@ -1,0 +1,162 @@
+/* =========================
+   Global Reset + Layout
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+}
+
+/* Allow natural overflow so layout bugs are visible */
+html {
+  overflow-x: auto;
+}
+
+body {
+  font-family: var(
+    --font-main,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif
+  );
+
+  color: var(--text);
+
+  background: radial-gradient(
+    circle at 20% 10%,
+    #2d2d2d 0%,
+    #151515 60%,
+    #0d0d0d 100%
+  );
+
+  overflow-x: auto;
+}
+
+/* Root app wrapper */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* =========================
+   Typography Safety
+   ========================= */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   Media + Controls
+   ========================= */
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  max-width: 100%;
+}
+
+/* =========================
+   App Layout
+   ========================= */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Main content wrapper */
+.app-main {
+  flex: 1;
+  width: 100%;
+  padding: clamp(16px, 2vw, 28px);
+  min-width: 0;
+}
+
+/* Wider desktop container so layout isn’t crunched */
+.page-container {
+  width: 100%;
+  max-width: 1400px; /* was 1100px */
+  margin: 0 auto;
+  min-width: 0;
+}
+
+/* Larger screens get a bit more breathing room */
+@media (min-width: 1400px) {
+  .page-container {
+    max-width: 1500px;
+  }
+}
+
+/* Slightly tighter on tablets */
+@media (max-width: 768px) {
+  .app-main {
+    padding: 16px;
+  }
+}
+
+/* =========================
+   Panels
+   ========================= */
+
+.page-panel {
+  width: 100%;
+  max-width: 100%;
+  background: var(--panel-2);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius);
+  padding: clamp(14px, 1.5vw, 18px);
+  min-width: 0;
+}
+
+/* =========================
+   Utility
+   ========================= */
+
+.minw-0 {
+  min-width: 0;
+}
+
+.w-full {
+  width: 100%;
+}

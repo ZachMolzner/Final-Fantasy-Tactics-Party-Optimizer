@@ -1,0 +1,26 @@
+:root {
+  /* Core palette */
+  --ink: #1e1a14;
+  --muted-ink: rgba(30, 26, 20, 0.85);
+
+  --paper: #fbf6ea;
+  --paper-2: #f4ecd9;
+
+  --edge: rgba(20, 16, 10, 0.22);
+  --edge-strong: rgba(20, 16, 10, 0.35);
+
+  --gold: #c9a227;
+  --gold-2: #e8d27a;
+
+  /* Elevation */
+  --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.1);
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+
+  /* Radius */
+  --radius: 16px;
+  --radius-lg: 22px;
+
+  /* Layout */
+  --max-width: 1100px;
+  --gap: 14px;
+}

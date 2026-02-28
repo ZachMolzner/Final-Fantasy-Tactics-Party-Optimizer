@@ -1,0 +1,166 @@
+.party-customizer__ability-card {
+  border: 1px solid #6a563b;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff6e8;
+  min-width: 0;
+}
+
+.party-customizer__ability-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.party-customizer__ability-item {
+  min-width: 0;
+}
+
+/* =========================
+   Tag filters (BUTTONS)
+   ========================= */
+
+.party-customizer__tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 6px 0;
+  min-width: 0;
+}
+
+.party-customizer__tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #765f3d;
+  background: #f4e3c8;
+  font-size: 0.8rem;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 120ms ease,
+    background 120ms ease,
+    outline 120ms ease,
+    opacity 120ms ease;
+
+  max-width: 100%;
+}
+
+.party-customizer__tag:hover {
+  transform: translateY(-1px);
+  background: #f8ecd6;
+}
+
+.party-customizer__tag:focus-visible {
+  outline: 3px solid rgba(79, 61, 35, 0.35);
+  outline-offset: 2px;
+}
+
+.party-customizer__tag--active {
+  outline: 2px solid rgba(79, 61, 35, 0.45);
+  background: #fffaf0;
+}
+
+.party-customizer__tag--ghost {
+  opacity: 0.85;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* =========================
+   Card header
+   ========================= */
+
+.party-customizer__ability-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.party-customizer__ability-name {
+  font-weight: 800;
+  color: #3b2b15;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 1 auto;
+}
+
+/* Toggle */
+.party-customizer__toggle {
+  font-size: 0.9rem;
+  user-select: none;
+  white-space: nowrap;
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.party-customizer__toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #c79b3b;
+}
+
+.party-customizer__toggle input[type="checkbox"]:focus-visible {
+  outline: 3px solid rgba(79, 61, 35, 0.35);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* =========================
+   Ability tag chips (SPANS) not clickable
+   ========================= */
+
+.party-customizer__ability-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 6px 0 0;
+  min-width: 0;
+}
+
+.party-customizer__chip {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 61, 35, 0.28);
+  background: rgba(255, 255, 255, 0.6);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: rgba(59, 43, 21, 0.92);
+
+  max-width: 100%;
+  cursor: default;
+  user-select: none;
+}
+
+/* Empty state */
+.party-customizer__empty {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px dashed rgba(79, 61, 35, 0.5);
+  background: rgba(249, 240, 223, 0.6);
+  opacity: 0.9;
+}
+
+/* Mobile readability */
+@media (max-width: 520px) {
+  .party-customizer__ability-name {
+    white-space: normal;
+  }
+
+  .party-customizer__ability-top {
+    align-items: flex-start;
+  }
+}

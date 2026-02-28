@@ -1,0 +1,244 @@
+.profile {
+  display: grid;
+  gap: var(--gap);
+}
+
+/* Hero */
+.profile__hero {
+  padding: 22px 20px;
+}
+
+.profile__hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.profile__badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: rgba(30, 26, 20, 0.86);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.profile__title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.2px;
+}
+
+.profile__subtitle {
+  margin-top: 10px;
+  color: var(--muted-ink);
+  font-weight: 800;
+}
+
+/* Stats row */
+.profile__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  gap: 12px;
+  margin-top: 16px;
+  align-items: stretch;
+}
+
+.profile__stat {
+  border: 1px solid var(--edge-strong);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 12px 14px;
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.08);
+}
+
+.profile__stat-label {
+  font-weight: 900;
+  color: rgba(30, 26, 20, 0.75);
+  font-size: 0.9rem;
+}
+
+.profile__stat-value {
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin-top: 2px;
+}
+
+.profile__stat--cta {
+  display: grid;
+  place-items: center;
+  padding: 10px;
+}
+
+/* Panel */
+.profile__panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.profile__panel-title {
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+/* Search */
+.profile__search {
+  width: min(360px, 100%);
+}
+
+.profile__input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--edge-strong);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--ink);
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.08);
+  outline: none;
+}
+
+.profile__input:focus {
+  border-color: rgba(201, 162, 39, 0.7);
+}
+
+/* Buttons */
+.profile__button {
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--edge-strong);
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  font-weight: 900;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    border-color 140ms ease;
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.1);
+}
+
+.profile__button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(201, 162, 39, 0.55);
+  box-shadow: 0 14px 22px rgba(0, 0, 0, 0.14);
+}
+
+.profile__button:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+.profile__button--primary {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  border-color: rgba(201, 162, 39, 0.65);
+  color: #1b160e;
+}
+
+/* List */
+.profile__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.profile__card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+
+  border: 1px solid var(--edge-strong);
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      900px 260px at 20% 0%,
+      rgba(201, 162, 39, 0.15),
+      transparent 55%
+    ),
+    rgba(255, 255, 255, 0.5);
+  padding: 14px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+}
+
+.profile__card-title {
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.profile__card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+  color: rgba(30, 26, 20, 0.75);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.profile__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  background: rgba(255, 255, 255, 0.55);
+  color: rgba(30, 26, 20, 0.9);
+  font-weight: 900;
+}
+
+.profile__meta strong {
+  color: rgba(30, 26, 20, 0.9);
+}
+
+.profile__card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Empty state */
+.profile__empty {
+  border: 1px dashed rgba(201, 162, 39, 0.45);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.profile__empty-title {
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.profile__empty-text {
+  margin-top: 6px;
+  color: rgba(30, 26, 20, 0.75);
+  font-weight: 800;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .profile__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .profile__card {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .profile__card-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile__button {
+    transition: none;
+  }
+}

@@ -8,27 +8,33 @@ Design custom party compositions, unlock abilities, and receive structured tacti
 ⚔️ This is a theorycrafting and build-planning tool — not a playable game.
 
 🌐 Live Demo
-
 🔗 Deployed Application
+
 https://zachmolzner.github.io/Final-Fantasy-Tactics-Party-Optimizer/
 
 🎥 5-Minute Demo Walkthrough
+
 A guided walkthrough of the architecture, optimization engine, and API integration.
 
-👉 https://drive.google.com/file/d/146aVMSj_oOLQTG_nEgIV4q3Cx8rUzN1K/view?usp=sharing
+Watch the Demo:
+https://drive.google.com/file/d/146aVMSj_oOLQTG_nEgIV4q3Cx8rUzN1K/preview
 
 🎮 Core Features
 🧩 Party Customization
 
-Build a 5-unit tactical party with deep configuration controls:
+Build a 5-unit tactical party with deep configuration controls.
 
-Select Primary Job
+Select
 
-Assign Secondary Action Set
+Primary Job
 
-Unlock job abilities
+Secondary Action Set
 
-Equip:
+Unlock
+
+Job abilities
+
+Equip
 
 Reaction abilities
 
@@ -36,7 +42,7 @@ Support abilities
 
 Movement abilities
 
-Configure:
+Configure
 
 Brave
 
@@ -48,11 +54,11 @@ Zodiac sign
 
 Level
 
-Advanced constraints include:
+Advanced Constraints
 
 Gender-locked jobs (Bard / Dancer)
 
-Unique character job gating (Ramza, Agrias, etc.)
+Unique character job gating
 
 🧠 Tactical Optimization Engine
 
@@ -96,17 +102,15 @@ The optimizer is fully explainable — no black-box AI.
 
 🌐 External API Integration
 
-The project includes a service layer that integrates with the Final Fantasy Fandom API.
+Service layer integrates with the Final Fantasy Fandom API.
 
 Fetches structured job data
 
-Normalizes external responses into internal data models
+Normalizes responses into internal data models
 
 Keeps UI decoupled from API logic
 
-Ensures optimizer works with clean, predictable data
-
-API access is isolated within services/fandom/ to maintain architectural separation between data retrieval and application logic.
+API access isolated within services/fandom/
 
 🌍 Community Features (MVP)
 
@@ -122,7 +126,7 @@ Save builds from other users
 
 Load shared builds directly into Party Customizer
 
-All data persistence is handled via LocalStorage (MVP architecture).
+All persistence handled via LocalStorage.
 
 🔐 Authentication (Frontend MVP)
 
@@ -132,119 +136,29 @@ Protected routes (Community / Profile)
 
 Local session persistence
 
-Display name identity normalization
-
 Author-only delete permissions
 
-Authentication state is managed via Context API and route protection is handled with a reusable ProtectedRoute wrapper.
-
-🖥 UI & Visual Design
-
-Inspired by classic FFT aesthetics while maintaining modern usability standards.
-
-Visual Direction
-
-Parchment-style panels
-
-Gold accent borders
-
-Subtle radial highlights
-
-Stone-toned gradients
-
-Responsive layout
-
-Accessible spacing and contrast
-
-Layout Structure
-
-| Party Roster | Unit Sheet | Party Report |
-
-Additional Pages:
-
-Home
-
-Community
-
-Profile
-
-Sign In
+Authentication managed via Context API and a reusable ProtectedRoute wrapper.
 
 🧱 Tech Stack
 
 React
 
-React Router (HashRouter for GitHub Pages)
+React Router (HashRouter)
 
 Context API
 
 Custom Hooks
 
-LocalStorage persistence layer
+LocalStorage
 
 Rule-based optimization engine
 
-Modular component architecture
+Modular architecture
 
-BEM-based CSS methodology
+BEM CSS methodology
 
 Vite
-
-📁 Project Structure
-Final-Fantasy-Tactics-Party-Optimizer/
-├── public/
-├── scripts/
-│ └── sync-fandom-jobs.js
-├── src/
-│ ├── app/
-│ ├── assets/
-│ ├── components/
-│ │ ├── layout/
-│ │ ├── party/
-│ │ └── shared/
-│ ├── context/
-│ ├── data/
-│ ├── hooks/
-│ ├── routes/
-│ ├── services/
-│ │ ├── fandom/
-│ │ └── storage/
-│ ├── styles/
-│ ├── utils/
-│ │ └── optimizer/
-│ ├── main.jsx
-│ └── index.css
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
-💾 Data Model
-
-Each unit stores:
-
-Name
-
-Level
-
-Gender
-
-Zodiac
-
-Primary job
-
-Secondary job
-
-Reaction / Support / Movement abilities
-
-Unlocked abilities (bucketed per job)
-
-Brave & Faith
-
-Equipment (MVP placeholder)
-
-Party analysis derives capability from ability tags, not static job assumptions.
 
 🚀 Running Locally
 npm install
@@ -270,7 +184,7 @@ Build import/export codes
 
 Dark mode variant
 
-Advanced analytics (synergy heatmaps, archetype detection)
+Advanced analytics
 
 🎯 Why This Project Matters
 
@@ -288,8 +202,6 @@ API integration and normalization
 
 Scalable component architecture
 
-Evolution from MVP → multi-page application
-
 It reflects both engineering discipline and passion-driven product design.
 
 📜 Disclaimer
@@ -297,4 +209,3 @@ It reflects both engineering discipline and passion-driven product design.
 This is a fan-made planning tool inspired by Final Fantasy Tactics.
 
 It is not affiliated with or endorsed by Square Enix.
-No copyrighted game assets are intentionally distributed in this project.
